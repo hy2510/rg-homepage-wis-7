@@ -101,6 +101,9 @@ function PrivateFooter() {
           </Link>
         )}
         <Link href={SITE_PATH.CATALOG.HOME}>Catalog</Link>
+        <Link href={'https://character.readinggate.com/'} target="_blank">
+          <div>DODO & Friends</div>
+        </Link>
         <Link
           href={'https://util.readinggate.com/Community/BringInInstitution'}
           target="_blank">

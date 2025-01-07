@@ -4,13 +4,17 @@ import { useSiteBlueprint } from '@/app/_context/CustomerContext'
 import Image from 'next/image'
 
 export default function Page() {
-  const { target } = useSiteBlueprint()
+  const { country, target } = useSiteBlueprint()
 
   let src = '/src/images/@user-guide/rg_use_guide_indi.png'
   let height = 14182
   if (target.academy || target.school) {
     src = '/src/images/@user-guide/rg_use_guide_school.png'
     height = 15243
+  }
+  if (country.canada) {
+    src = '/src/images/@user-guide/rg_use_guide_global.png'
+    height = 15431
   }
 
   return (

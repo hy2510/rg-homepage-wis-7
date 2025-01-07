@@ -142,31 +142,30 @@ const Section01 = () => {
 
   const slideCardData = [
     {
-      title: '영어의 시작 DODO ABC',
-      sub: '재미있는 영상과 5단계 액티비티, 신나는 동요와 복습 게임으로<br /> 알파벳, 파닉스, 사이트 워드를 배워요.',
-      subMobile:
-        '재미있는 영상과 5단계 액티비티, 신나는 동요와 복습 게임으로 알파벳, 파닉스, 사이트 워드를 배워요.',
+      title: 'Begin Your English Journey with DODO ABC',
+      sub: `Learn the alphabet, phonics, and sight words through watching fun videos, completing 5-step activities, singing exciting children's songs, and playing review games!`,
+      subMobile: `Learn the alphabet, phonics, and sight words through watching fun videos, completing 5-step activities, singing exciting children's songs, and playing review games!`,
       imgSrc: '/src/images/@about-to-school/section01/slide/1.png',
     },
     {
-      title: '다양하고 풍부한 스토리',
-      sub: '오디오를 포함한 eBook, 애니메이션으로 감상하는 Movie Book,<br /> 영어로 된 원서 pBook 등 6,000여 개 이상의 다양한 콘텐츠를 경험해요. ',
+      title: 'A Wide Array of Captivating Stories',
+      sub: 'Dive into a world of over 6,000 pieces of content, including eBooks with full story audio, Movie Books with full animated videos, and pBooks with English comprehension activities!',
       subMobile:
-        '오디오를 포함한 eBook, 애니메이션으로 감상하는 Movie Book, 영어로 된 원서 pBook 등 6,000여 개 이상의 다양한 콘텐츠를 경험해요. ',
+        'Dive into a world of over 6,000 pieces of content, including eBooks with full story audio, Movie Books with full animated videos, and pBooks with English comprehension activities!',
       imgSrc: '/src/images/@about-to-school/section01/slide/2.png',
     },
     {
-      title: '말하기가 쉬워지는 AI SPEAK',
-      sub: 'AI 음성인식 프로그램이 eBook 속 원어민 음성을 따라 읽으면<br /> 음소 단위로 분석해서 결과를 알려줘요.',
+      title: 'Making Speaking Easy with AI SPEAK',
+      sub: 'Our AI voice recognition program analyzes your pronunciation as you follow along with native English speakers in the eBooks, breaking it down into phoneme-level feedback to show you how you did!',
       subMobile:
-        'AI 음성인식 프로그램이 eBook 속 원어민 음성을 따라 읽으면 음소 단위로 분석해서 결과를 알려줘요.',
+        'Our AI voice recognition program analyzes your pronunciation as you follow along with native English speakers in the eBooks, breaking it down into phoneme-level feedback to show you how you did!',
       imgSrc: '/src/images/@about-to-school/section01/slide/3.png',
     },
     {
-      title: '꼼꼼한 5단계 독후 학습',
-      sub: '레벨별 수준에 맞는 적절한 학습으로<br /> 영어의 4대 영역을 고르게 키워요.',
+      title: 'Comprehensive 5-Step Reading Program',
+      sub: 'Tailored to each level, this structured learning approach helps develop all four key areas of English proficiency evenly.',
       subMobile:
-        '레벨별 수준에 맞는 적절한 학습으로 영어의 4대 영역을 고르게 키워요.',
+        'Tailored to each level, this structured learning approach helps develop all four key areas of English proficiency evenly.',
       imgSrc: '/src/images/@about-to-school/section01/slide/4.png',
     },
   ]
@@ -174,16 +173,44 @@ const Section01 = () => {
   return (
     <>
       <div className={style.section01}>
-        <div className={style.title_image}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: '20px 0',
+          }}>
+          <div style={{ color: 'var(--white)', fontSize: '1.8em' }}>
+            Enjoy English by reading books!
+          </div>
+          <div
+            style={{
+              color: 'var(--yellow)',
+              fontSize: '3.8em',
+              fontWeight: 800,
+            }}>
+            Reading Gate
+          </div>
+        </div>
+        {/* <div className={style.title_image}>
           <Image
             src={'/src/images/@about-to-school/section01/top_title.svg'}
             width={600}
             height={205}
             alt=""
           />
-        </div>
+        </div> */}
         <div className={style.contents}>
-          <div>
+          Reading Gate is an English reading program designed to foster a love
+          for reading and enhance English proficiency. It offers a comprehensive
+          curriculum tailored to various learning levels, providing engaging
+          content that motivates students to read more. Nurture vivid
+          imaginations and promote steady reading habits through fun and
+          informative storybooks on various topics while developing
+          problem-solving skills by grasping the full context and core content
+          through online reading activities.
+          {/* <div>
             리딩게이트는 우리나라 아이들의 영어 학습을 위해 설계된
             {isMobile ? '' : <br />} 영어 독서 프로그램으로
             {isMobile ? '' : <br />} 수준별 독서와 꼼꼼한 독후 학습을
@@ -197,7 +224,7 @@ const Section01 = () => {
           <div>
             독후 학습을 통해 영어의 문맥과 핵심 내용을 파악하여
             {isMobile ? '' : <br />} 문제 해결 능력을 키울 수 있습니다.
-          </div>
+          </div> */}
         </div>
         <SlideContainer
           theme=""
@@ -205,8 +232,8 @@ const Section01 = () => {
           fixCardContainerSize>
           <div className={style.overlap}>
             <TitleBox
-              txt1={'보고, 듣고, 읽고, 말하는'}
-              txt2={'풍부한 콘텐츠'}
+              txt1={'Reading • Listening • Watching • Speaking'}
+              txt2={'Experience all the rich content'}
               txt1Color={''}
               txt2Color={'var(--blue)'}
             />
@@ -321,8 +348,8 @@ const Section02 = () => {
     <>
       <div className={style.section02}>
         <TitleBox
-          txt1={'22단계의 세분화된'}
-          txt2={'레벨구성'}
+          txt1={'22 Distinct Levels'}
+          txt2={'Structured Progression'}
           txt1Color={''}
           txt2Color={'#F95977'}
         />
@@ -429,25 +456,25 @@ const Section03 = () => {
   ]
   const slideCard2Data = [
     {
-      title: 'Level 2 이상',
+      title: 'Level 2 ~',
       sub: 'Reading Comprehension',
       subMobile: 'Reading Comprehension',
       imgSrc: '/src/images/@about-to-school/section03/slide/eb2/1.png',
     },
     {
-      title: 'Level 2 이상',
+      title: 'Level 2 ~',
       sub: 'Vocabulary Practice',
       subMobile: 'Vocabulary Practice',
       imgSrc: '/src/images/@about-to-school/section03/slide/eb2/2-2.png',
     },
     {
-      title: 'Level 2 이상',
+      title: 'Level 2 ~',
       sub: 'Summary Test',
       subMobile: 'Summary Test',
       imgSrc: '/src/images/@about-to-school/section03/slide/eb2/3.png',
     },
     {
-      title: 'Level 2 이상',
+      title: 'Level 2 ~',
       sub: 'Cloze Test',
       subMobile: 'Cloze Test',
       imgSrc: '/src/images/@about-to-school/section03/slide/eb2/4.png',
@@ -459,16 +486,15 @@ const Section03 = () => {
       <div className={style.section03}>
         <div className={style.row}>
           <TitleBox
-            txt1={'레벨별 수준에 딱 맞는'}
-            txt2={'독후 학습'}
+            txt1={'matched to your skill level'}
+            txt2={'Reading Activities'}
             txt1Color={''}
             txt2Color={'var(--blue)'}
           />
           <div className={style.comment}>
-            독서 후 4~5단계의(Reading Comprehension / Vocabulary / Listening /
-            Summary / Writing)
-            <br />
-            학습을 통해 학습 성취도를 확인할 수 있습니다.
+            Reinforce your reading and learning through our 4~5-step (Reading
+            Comprehension / Vocabulary / Listening / Summary / Writing)
+            activities.
           </div>
         </div>
         <div className={style.row}>
@@ -539,17 +565,16 @@ const Section04 = () => {
       <div className={style.section04}>
         <div className={style.row}>
           <TitleBox
-            txt1={'음성인식 프로그램'}
+            txt1={'Voice Recognition Program'}
             txt2={'AI SPEAK'}
             txt1Color={''}
             txt2Color={'#F95977'}
           />
           <div className={style.comment}>
-            DODO ABC Sight Word 학습과 eBook K~1레벨에서 Speak 프로그램을 이용할
-            수 있습니다.
-            <br />
-            학생의 발음을 음소 단위로 분석하여 결과를 제공함으로써 스피킹 능력을
-            향상시킵니다.
+            {`AI SPEAK is only available in our DODO ABC Sight Word activities &
+            eBooks at K~1 levels. Improves speaking ability by analyzing a
+            student's pronunciation at the phoneme level and providing direct
+            feedback to make the proper adjustments.`}
           </div>
         </div>
         <div className={style.row}>
@@ -572,32 +597,31 @@ const Section05 = () => {
 
   const slideCardRow1Data = [
     {
-      title: '일일 목표',
-      sub: '나의 일일 학습 목표를 설정하고 목표를 달성하면 캘린더에서 달성 현황을 확인할 수 있어요.',
+      title: 'Daily Goal',
+      sub: 'Set a daily learning goal. Complete your daily learning goal. Use the calendar to check how you are doing.',
       subMobile:
-        '나의 일일 학습 목표를 설정하고 목표를 달성하면 캘린더에서 달성 현황을 확인할 수 있어요.',
-      imgSrc: '/src/images/@about-to-school/section05/slide/1@2x.png',
+        'Set a daily learning goal. Complete your daily learning goal. Use the calendar to check how you are doing.',
+      imgSrc: '/src/images/@about-to-school/section05/slide/global_1.png',
     },
     {
-      title: '연속학습',
-      sub: '매일 한 권 이상 학습을 완료하여 연속 학습을 이어갈 수 있어요.',
+      title: 'Study Streak',
+      sub: 'Read at least a book a day. Stay consistent and never miss your goal!',
       subMobile:
-        '매일 한 권 이상 학습을 완료하여 연속 학습을 이어갈 수 있어요.',
-      imgSrc: '/src/images/@about-to-school/section05/slide/2@2x.png',
+        'Read at least a book a day. Stay consistent and never miss your goal!',
+      imgSrc: '/src/images/@about-to-school/section05/slide/global_2.png',
     },
     {
-      title: '레벨마스터',
-      sub: '레벨별로 정해진 학습 포인트를 모두 채우면 레벨마스터를 달성해요.',
+      title: 'Level Master',
+      sub: 'Become a Level Master after achieving all the points in a given level!',
       subMobile:
-        '레벨별로 정해진 학습 포인트를 모두 채우면 레벨마스터를 달성해요.',
-      imgSrc: '/src/images/@about-to-school/section05/slide/3@2x.png',
+        'Become a Level Master after achieving all the points in a given level!',
+      imgSrc: '/src/images/@about-to-school/section05/slide/global_3.png',
     },
     {
-      title: '도도와 친구들',
-      sub: '포인트를 쌓아 도도와 친구들의 성장 스토리를 열어볼 수 있어요.',
-      subMobile:
-        '포인트를 쌓아 도도와 친구들의 성장 스토리를 열어볼 수 있어요.',
-      imgSrc: '/src/images/@about-to-school/section05/slide/4@2x.png',
+      title: 'DODO and Friends',
+      sub: 'Collect points and unlock DODO and Friends mini-stories!',
+      subMobile: 'Collect points and unlock DODO and Friends mini-stories!',
+      imgSrc: '/src/images/@about-to-school/section05/slide/global_4.png',
     },
   ]
 
@@ -606,8 +630,8 @@ const Section05 = () => {
       <div className={style.section05}>
         <div className={style.row}>
           <TitleBox
-            txt1={'학습에 재미를 더해주는'}
-            txt2={'포인트와 동기 부여 기능'}
+            txt1={'make learning fun'}
+            txt2={'Points and Rewards'}
             txt1Color={''}
             txt2Color={'var(--blue)'}
           />
@@ -622,16 +646,16 @@ const Section05 = () => {
             </div>
             <div className={style.col_right}>
               <div>
-                리딩게이트의 모든 도서는 단어와 페이지 수, 문장의 난이도를
-                고려한 포인트가 차등 부여되어 있습니다.
+                Reading Gate assigns points to each book based on word count,
+                page count, and sentence difficulty.
               </div>
               <div>
-                온라인 독후 학습을 평균 70점 이상으로 통과할 경우 해당 도서의
-                포인트를 획득할 수 있습니다.
+                Earn points for a book by successfully passing the online
+                reading activities with an average score of 70 or more.
               </div>
               <div>
-                포인트는 도서 당 최대 두 번까지 획득할 수 있으며, 첫 번째 학습
-                통과 시 100%, 두 번째 학습 통과 시 50% 포인트를 획득합니다.
+                Points can be earned up to twice per book: 100% on the first
+                completion and 50% on the second.
               </div>
             </div>
           </div>
@@ -644,7 +668,7 @@ const Section05 = () => {
         <div className={style.row}>
           <div className={style.end_image}>
             <Image
-              src={'/src/images/@about-to-school/section05/ending@2x.png'}
+              src={'/src/images/@about-to-school/section05/ending_global.png'}
               width={1768}
               height={504}
               alt=""

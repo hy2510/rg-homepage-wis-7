@@ -917,7 +917,7 @@ const Section9 = () => {
             img="/src/images/@about/section09/ico_prek_icon.svg"
             txt_1="기초 영어"
             txt_2="유치원 ~ 초등 저학년까지"
-            txt_3="207편"
+            txt_3="307편"
             etc={false}
           />
           <CategoryButton

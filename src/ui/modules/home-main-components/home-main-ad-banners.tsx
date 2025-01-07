@@ -233,6 +233,7 @@ export const HomeBanner = ({
 
 export const HomeBannerRgShop = () => {
   const style = useStyle(STYLE_ID)
+  const { t } = useTranslation()
 
   return (
     <AdBannerType4>
@@ -240,7 +241,7 @@ export const HomeBannerRgShop = () => {
         className={`${style.home_banner} ${style.bg_top}`}
         style={{ backgroundImage: `url('/src/images/@home/shop/goods.png')` }}>
         <div>
-          <div className={style.title}>리딩게이트 샵</div>
+          <div className={style.title}>{t('t888')}</div>
         </div>
         <div className={style.home_banner_buttons}>
           <Link href="https://brand.naver.com/readinggate" target="_blank">
@@ -251,7 +252,7 @@ export const HomeBannerRgShop = () => {
                 height={20}
                 alt=""
               />
-              <span>샵 바로가기</span>
+              <span>{t('t889')}</span>
             </div>
           </Link>
           <Link
@@ -264,7 +265,7 @@ export const HomeBannerRgShop = () => {
                 height={20}
                 alt=""
               />
-              <span>워크북 구매하기</span>
+              <span>{t('t890')}</span>
             </div>
           </Link>
         </div>
@@ -331,13 +332,13 @@ export const HomeBannerRgMembership = ({
           backgroundImage: `url('/src/images/@home/payment/symbol.png')`,
         }}>
         <div>
-          <div className={style.title}>RG 멤버십</div>
+          <div className={style.title}>{t('t891')}</div>
           <div
             className={style.link}
             onClick={() => {
               viewModal ? _viewModal(false) : _viewModal(true)
             }}>
-            할인 혜택 보기
+            {t('t892')}
           </div>
           {viewModal && (
             <Modal
@@ -403,7 +404,7 @@ export const HomeBannerRgMembership = ({
                 height={20}
                 alt=""
               />
-              <span>이용권 구매하기</span>
+              <span>{t('t893')}</span>
             </div>
           </Link>
           {isEnabledTicket && (
@@ -415,7 +416,7 @@ export const HomeBannerRgMembership = ({
                   height={20}
                   alt=""
                 />
-                <span>티켓 등록하기</span>
+                <span>{t('t894')}</span>
               </div>
             </Link>
           )}
@@ -538,6 +539,7 @@ export const HomeBannerRgMembershipVn = ({
 export const HomeCustomerCenter = () => {
   const style = useStyle(STYLE_ID)
   const isMobile = useScreenMode() === 'mobile'
+  const { t } = useTranslation()
 
   return (
     <AdBannerType4>
@@ -557,7 +559,9 @@ export const HomeCustomerCenter = () => {
           <Link
             href="https://ossified-smell-f52.notion.site/RG-a8fc674ab32f458ca70d659e1916e34c"
             target="_blank">
-            <div className={`${style.title} ${style.title_link}`}>고객지원</div>
+            <div className={`${style.title} ${style.title_link}`}>
+              {t('t895')}
+            </div>
           </Link>
         </div>
         <div className={style.customer_center_menu_list}>
@@ -565,7 +569,7 @@ export const HomeCustomerCenter = () => {
             href="https://ossified-smell-f52.notion.site/a4cce8ae154943808cc48a9e5b60327b"
             target="_blank">
             <div className={`${style.menu_item} ${style.bg001}`}>
-              <span>리딩게이트가 처음이신가요?</span>
+              <span>{t('t896')}</span>
               <div className={style.bg_image}></div>
             </div>
           </Link>
@@ -573,7 +577,7 @@ export const HomeCustomerCenter = () => {
             href="https://ossified-smell-f52.notion.site/d7da80412132466e9fdf7667d34dd1de"
             target="_blank">
             <div className={`${style.menu_item} ${style.bg002}`}>
-              <span>학습 가이드</span>
+              <span>{t('t897')}</span>
               <div className={style.bg_image}></div>
             </div>
           </Link>
@@ -581,7 +585,7 @@ export const HomeCustomerCenter = () => {
             href="https://ossified-smell-f52.notion.site/13cf0c72b174800683d0d79a7d2a8f74"
             target="_blank">
             <div className={`${style.menu_item} ${style.bg002_1}`}>
-              <span>이용권 구매 및 티켓등록</span>
+              <span>{t('t898')}</span>
               <div className={style.bg_image}></div>
             </div>
           </Link>
@@ -589,7 +593,7 @@ export const HomeCustomerCenter = () => {
             href="https://ossified-smell-f52.notion.site/983726afd0934c3a8157bf52331d06ec"
             target="_blank">
             <div className={`${style.menu_item} ${style.bg003}`}>
-              <span>사용환경</span>
+              <span>{t('t899')}</span>
               <div className={style.bg_image}></div>
             </div>
           </Link>
@@ -597,7 +601,7 @@ export const HomeCustomerCenter = () => {
             href="https://ossified-smell-f52.notion.site/cf1d4f5a54654ded8a2ad92b9b7ce3c9"
             target="_blank">
             <div className={`${style.menu_item} ${style.bg004}`}>
-              <span>원격지원</span>
+              <span>{t('t900')}</span>
               <div className={style.bg_image}></div>
             </div>
           </Link>
@@ -605,7 +609,7 @@ export const HomeCustomerCenter = () => {
             href="https://ossified-smell-f52.notion.site/4494d64673004eda9af91f9d613ec687"
             target="_blank">
             <div className={`${style.menu_item} ${style.bg005}`}>
-              <span>자료실</span>
+              <span>{t('t901')}</span>
               <div className={style.bg_image}></div>
             </div>
           </Link>
@@ -613,7 +617,7 @@ export const HomeCustomerCenter = () => {
             href="https://ossified-smell-f52.notion.site/f72c92a304ff4548bd1454378bf23eb0"
             target="_blank">
             <div className={`${style.menu_item} ${style.bg006}`}>
-              <span>이벤트</span>
+              <span>{t('t902')}</span>
               <div className={style.bg_image}></div>
             </div>
           </Link>
@@ -1049,11 +1053,12 @@ export const HomeCustomerCenterGlobal = () => {
 
 export const HomePartnership = () => {
   const style = useStyle(STYLE_ID)
+  const { t } = useTranslation()
 
   return (
     <div className={style.home_partnership}>
       <div className={style.row}>
-        <div className={style.title}>P북 대여하러 가기</div>
+        <div className={style.title}>{t('t905')}</div>
         <Link
           href={'https://www.woodo.kr/readinggate'}
           target="_blank"
@@ -1062,7 +1067,7 @@ export const HomePartnership = () => {
         </Link>
       </div>
       <div className={style.row}>
-        <div className={style.title}>오디오북 & 이북 제휴</div>
+        <div className={style.title}>{t('t906')}</div>
         <div className={style.partner_banner_group}>
           <Link
             href={'https://www.millie.co.kr/'}
@@ -1140,20 +1145,21 @@ export const HomeBannerDonation = ({
   bgImage: string
 }) => {
   const style = useStyle(STYLE_ID)
+  const { t } = useTranslation()
 
   return (
     <AdBannerType4 bgColor="#C92343" bgImage={bgImage}>
       <div className={`${style.home_banner} ${style.txt_white}`}>
         <div>
           <div className={`${style.title} ${style.mg_bottom_none}`}>
-            다독다독 기부캠페인
+            {t('t912')}
           </div>
-          <div className={`${style.title}`}>후원 완료</div>
+          <div className={`${style.title}`}>{t('t913')}</div>
           <Link href={link} target="_blank">
             <div
               className={`${style.link} ${style.txt_white}`}
               style={{ marginBottom: '10px' }}>
-              후원 스토리 보기
+              {t('t914')}
             </div>
           </Link>
         </div>

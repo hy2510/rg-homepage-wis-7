@@ -106,33 +106,33 @@ function MainComponent({ platform }: { platform: string }) {
             </Link>
           </div>
         </div>
-        <HomeMainQuickMenu label="자주 찾는 메뉴">
+        <HomeMainQuickMenu label={t('t879')}>
           <HomeMainQuickMenuItem
-            title="학습 이용 방법"
+            title={t('t880')}
             href="/home/user-guide"
             bgColor="#E8EBED"
             imgSrc="/src/images/@home/quick-menu-icon/find.png"
           />
           <HomeMainQuickMenuItem
-            title="랭킹"
+            title={t('t881')}
             href="/ranking"
             bgColor="#FFF3BB"
             imgSrc="/src/images/@home/quick-menu-icon/star.png"
           />
           <HomeMainQuickMenuItem
-            title="신규 도서"
+            title={t('t882')}
             href="/home/main/rg-news/new-contents/"
             bgColor="#D9F8FF"
             imgSrc="/src/images/@home/quick-menu-icon/new_book.png"
           />
           <HomeMainQuickMenuItem
-            title="이용권 구매"
+            title={t('t893')}
             href="/home/rg-membership/payment/purchase"
             bgColor="#D8F6E5"
             imgSrc="/src/images/@home/quick-menu-icon/payment.png"
           />
           <HomeMainQuickMenuItem
-            title="워크북 구매"
+            title={t('t883')}
             href="https://brand.naver.com/readinggate/category/97ef382000f947ab90f05041ea6b1f0c?cp=1"
             target="_blank"
             bgColor="#E8F1FF"
@@ -203,14 +203,14 @@ function MainComponent({ platform }: { platform: string }) {
         </div>
         <div className={style.row_5}>
           <HomeBanner
-            title="리딩게이트 소개"
-            comment="미래를 여는 행복한 습관! 리딩게이트의 세계에 오신 것을 환영합니다!"
+            title={t('t884')}
+            comment={t('t885')}
             bgImage="/src/images/@home/img_post_card_bg_default.svg"
             href="/home/about-to-school"
           />
           <HomeBanner
-            title="학습 이용 방법"
-            comment="어렵지 않아요. 차근차근 안내를 따라 학습해 보세요!"
+            title={t('t886')}
+            comment={t('t887')}
             bgImage="/src/images/@home/cards/how_to_use.svg"
             href="/home/user-guide"
           />
@@ -220,8 +220,8 @@ function MainComponent({ platform }: { platform: string }) {
         <div className={style.row_6_kr}>
           <HomeCustomerCenter />
           <HomeBanner
-            title="랭킹"
-            comment="친구들과 함께 성장하는 즐거움!"
+            title={t('t903')}
+            comment={t('t904')}
             bgImage="/src/images/@home/cards/ranking.png"
             href="/ranking"
           />
@@ -231,9 +231,9 @@ function MainComponent({ platform }: { platform: string }) {
           <HomeBannerChanner
             title1=""
             title2="RG Cafe"
-            linkTxt1="RG에 빠진 가족"
+            linkTxt1={t('t907')}
             link1="https://cafe.naver.com/readinggatecafe?iframe_url=/ArticleList.nhn%3Fsearch.clubid=29561033%26search.menuid=30%26search.boardtype=L"
-            linkTxt2="영어 독서왕 대상 후기"
+            linkTxt2={t('t908')}
             link2="https://cafe.naver.com/readinggatecafe?iframe_url=/ArticleList.nhn%3Fsearch.clubid=29561033%26search.menuid=113%26search.boardtype=L"
             bgColor="#5B2390"
             bgImage="/src/images/@home/channer/channer_cafe.svg"
@@ -241,9 +241,9 @@ function MainComponent({ platform }: { platform: string }) {
           <HomeBannerChanner
             title1=""
             title2="RG Blog"
-            linkTxt1="RG에 빠진 아이들"
+            linkTxt1={t('t909')}
             link1="https://blog.naver.com/PostList.nhn?blogId=readinggate_official&from=postList&categoryNo=10"
-            linkTxt2="슈퍼스타 수상자 인터뷰"
+            linkTxt2={t('t910')}
             link2="https://blog.naver.com/PostList.naver?blogId=readinggate_official&from=postList&categoryNo=14"
             bgColor="#2FB44A"
             bgImage="/src/images/@home/channer/channer_blog.svg"
@@ -251,7 +251,7 @@ function MainComponent({ platform }: { platform: string }) {
           <HomeBannerChanner
             title1=""
             title2="RG Story"
-            linkTxt1="RG인 인터뷰 모아보기"
+            linkTxt1={t('t911')}
             link1="https://www.youtube.com/playlist?list=PLbIV2Wes7jczKZkbqMaIjHgSHwDLEuaFO"
             bgColor="#222B52"
             bgImage="/src/images/@home/channer/channer_youtube.svg"
