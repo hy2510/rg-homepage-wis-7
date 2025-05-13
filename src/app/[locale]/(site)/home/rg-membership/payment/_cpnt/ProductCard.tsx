@@ -44,6 +44,9 @@ export default function ProductCardList({
               originalPrice={item.fee}
               finalPrice={item.totalFee}
               onProductClick={onProductClick}
+              isDiscount={true}
+              eventPrice={30000000}
+              eventGiftText="+ 5 quyển workbook"
             />
           )
         })}
@@ -62,6 +65,9 @@ function ProductCard({
   originalPrice,
   finalPrice,
   onProductClick,
+  isDiscount,
+  eventPrice,
+  eventGiftText,
 }: {
   STYLE_ID: string
   id: string
@@ -72,6 +78,9 @@ function ProductCard({
   originalPrice: number
   finalPrice: number
   onProductClick?: (id: string) => void
+  isDiscount?: boolean
+  eventPrice?: number
+  eventGiftText?: string
 }) {
   // @Language 'common'
   const { t, i18n } = useTranslation()
@@ -93,16 +102,34 @@ function ProductCard({
       onClick={() => {
         onProductClick && onProductClick(id)
       }}>
+      {isDiscount && (
+        <div className={style.discount_label}>
+          <img
+            src="/src/images/@rg-membership/img-vn_discount_label.png"
+            alt=""
+            width={80}
+            draggable="false"
+          />
+        </div>
+      )}
       <div className={style.tag}>{t('t052', { num: day })}</div>
-      <div className={style.title}>{productTitle}</div>
+      {/* <div className={style.title}>{productTitle}</div> */}
       <div
         className={style.original_price}
         style={{ opacity: originalPrice === finalPrice ? 0 : 1 }}>
         {RgFormat.toNumberMoneyString(originalPrice, currency)}
       </div>
-      <div className={style.final_price}>
+      <div className={`${style.final_price} ${isDiscount && style.discount}`}>
         {RgFormat.toNumberMoneyString(finalPrice, currency)}
       </div>
+      {isDiscount && (
+        <div className={style.event_message_box}>
+          <div className={style.event_price}>
+            {RgFormat.toNumberMoneyString(eventPrice, currency)}
+          </div>
+          <div className={style.event_gift_text}>{eventGiftText}</div>
+        </div>
+      )}
     </div>
   )
 }

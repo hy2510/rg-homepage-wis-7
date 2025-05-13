@@ -255,6 +255,11 @@
       color: var(--white);
     }
   }
+  .discount_label {
+    position: absolute;
+    top: -20px;
+    left: -15px;
+  }
   .tag {
     position: absolute;
     top: 0;
@@ -283,6 +288,29 @@
   .final_price {
     font-size: var(--text-xl);
     font-weight: 700;
+    &.discount {
+      font-size: var(--text-l);
+      text-decoration: line-through;
+    }
+  }
+  .event_message_box {
+    margin-top: var(--space-xxs);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xxs);
+    min-height: 80px;
+    .event_price {
+      color: var(--red);
+      font-size: var(--text-xl);
+      font-weight: 600;
+    }
+    .event_gift_text {
+      font-size: var(--text-m);
+      text-align: center;
+      font-weight: 500;
+      line-height: 24px;
+    }
   }
 }
 
