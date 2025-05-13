@@ -3,6 +3,7 @@
 import AppContextProvider, { ApplicationType } from '@/app/_context/AppContext'
 import CustomerContextProvider from '@/app/_context/CustomerContext'
 import ChannelTalkContextProvider from '@/external/channel-talk/component/ChannelTalkContext'
+import MarketingTrackerContextProvider from '@/external/marketing-tracker/component/MarketingTrackerContext'
 import Swing2AppContext from '@/external/swing2app/component/Swing2AppContext'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { ReactNode } from 'react'
@@ -74,23 +75,25 @@ export default function AppInitializer({
     <DeviceContextProvider
       applicationType={appType}
       userAgentInfo={userAgentInfo}>
-      <Swing2AppContext>
-        <AppContextProvider applicationType={appType}>
-          <CustomerContextProvider customerJson={customerJson}>
-            <ChannelTalkContextProvider>
-              {children}
-              {!isLogin &&
-                appType !== 'app' &&
-                staffLoginStatus !== 'off' &&
-                isStaffAccess &&
-                staffPath && <ClientTo to={staffPath} isReplace={true} />}
-              {isLogin &&
-                loginStatus === 'unknown' &&
-                isLoginForwardValidatePath && <LoginForward />}
-            </ChannelTalkContextProvider>
-          </CustomerContextProvider>
-        </AppContextProvider>
-      </Swing2AppContext>
+      <MarketingTrackerContextProvider>
+        <Swing2AppContext>
+          <AppContextProvider applicationType={appType}>
+            <CustomerContextProvider customerJson={customerJson}>
+              <ChannelTalkContextProvider>
+                {children}
+                {!isLogin &&
+                  appType !== 'app' &&
+                  staffLoginStatus !== 'off' &&
+                  isStaffAccess &&
+                  staffPath && <ClientTo to={staffPath} isReplace={true} />}
+                {isLogin &&
+                  loginStatus === 'unknown' &&
+                  isLoginForwardValidatePath && <LoginForward />}
+              </ChannelTalkContextProvider>
+            </CustomerContextProvider>
+          </AppContextProvider>
+        </Swing2AppContext>
+      </MarketingTrackerContextProvider>
     </DeviceContextProvider>
   )
 }

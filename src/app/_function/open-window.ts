@@ -28,7 +28,6 @@ export function openWindow(url: string, config?: OpenConfig) {
         myWindow.open(url, target, feature)
       }
     } else {
-      alert('open window - else')
       const target = '_blank'
       const feature = undefined
       myWindow.open(url, target, feature)

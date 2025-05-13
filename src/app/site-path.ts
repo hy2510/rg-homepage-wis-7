@@ -99,8 +99,14 @@ const CATALOG = {
 export const STAFF_PATH = {
   MAIN: '/staff',
   MIRAGE: '/mirage',
-  BOARD: '/staff/board',
-  GALLERY: '/staff/gallery',
+  NOTICE: {
+    MAIN: '/staff/board/notice',
+    WRITE: '/staff/board/notice/write',
+  },
+  GALLERY: {
+    MAIN: '/staff/board/gallery',
+    WRITE: '/staff/board/gallery/write',
+  },
 }
 
 const PARAMS_PATH = [

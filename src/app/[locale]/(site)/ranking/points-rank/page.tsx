@@ -2,6 +2,7 @@
 
 import { useSiteBlueprint } from '@/app/_context/CustomerContext'
 import useTranslation from '@/localization/client/useTranslations'
+import { VIETNAMESE } from '@/localization/localize-config'
 import NumberUtils from '@/util/number-utils'
 import Image from 'next/image'
 import { ReactNode, useState } from 'react'
@@ -33,7 +34,8 @@ export default function Page() {
 function PointRank() {
   const style = useStyle(STYLE_ID)
   // @Language 'common'
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const language = i18n.language
 
   const [tab, setTab] = useState('monthly')
 
@@ -197,8 +199,9 @@ function PointRank() {
     )
   }
 
+  const [modalUrl, setModalUrl] = useState<string | undefined>(undefined)
+
   const isMobile = useScreenMode() === 'mobile'
-  const [viewModal, _viewModal] = useState(false)
 
   return (
     <main className={style.point_rank}>
@@ -242,30 +245,27 @@ function PointRank() {
         <div
           className={style.txt_link}
           onClick={() => {
-            _viewModal(true)
+            const url = `/src/html/page-contents/${isMobile ? 'mobile' : 'pc'}/ranking/ranking_01_point_pop${language === VIETNAMESE ? `_${VIETNAMESE}` : ''}.html`
+            setModalUrl(url)
           }}>
           {t('t406')}
         </div>
-        {viewModal && (
+        {modalUrl && (
           <Modal
             compact
             header
             title={t('t407')}
             onClickDelete={() => {
-              _viewModal(false)
+              setModalUrl(undefined)
             }}
             onClickLightbox={() => {
-              _viewModal(false)
+              setModalUrl(undefined)
             }}>
             <iframe
               width={'100%'}
               frameBorder="0"
               scrolling="no"
-              src={
-                isMobile
-                  ? '/src/html/page-contents/mobile/ranking/ranking_01_point_pop.html'
-                  : '/src/html/page-contents/pc/ranking/ranking_01_point_pop.html'
-              }
+              src={modalUrl}
               style={{
                 height: isMobile ? '1065px' : '867px',
                 backgroundColor: 'transparent',

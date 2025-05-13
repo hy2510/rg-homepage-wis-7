@@ -12,6 +12,7 @@ type Input = {
 
 type Output = {
   board: BoardGalleryList[]
+  writable?: boolean
 }
 
 async function action(input: Input): Promise<ApiResponse<Output>> {
@@ -26,6 +27,7 @@ async function action(input: Input): Promise<ApiResponse<Output>> {
       board: json.Board.map(
         (item: any): BoardGalleryList => makeBoardGalleryList(item),
       ),
+      writable: json.Writable,
     }
   })
 }

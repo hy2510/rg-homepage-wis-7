@@ -2,6 +2,16 @@ import SITE_PATH from '@/app/site-path'
 
 const post = [
   {
+    id: '202403',
+    title: '2024년 학습 인포그래픽',
+    url: `${SITE_PATH.HOME.INFOGRAPHIC}/202403`,
+  },
+  {
+    id: '202402',
+    title: '2024하반기 영어독서왕대회 인포그래픽',
+    url: `${SITE_PATH.HOME.INFOGRAPHIC}/202402`,
+  },
+  {
     id: '202401',
     title: '2024상반기 영어독서왕대회 인포그래픽',
     url: `${SITE_PATH.HOME.INFOGRAPHIC}/202401`,

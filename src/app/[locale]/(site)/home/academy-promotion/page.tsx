@@ -1,10 +1,13 @@
-import { headers } from 'next/headers'
+import { headers as syncHeaders } from 'next/headers'
 import Common from '@/repository/server/common'
 import Home from '@/repository/server/home'
 import PromotionDetail from './_cpnt/PromotionDetail'
 
 async function sendToRefererData() {
-  const header = await headers()
+  const asyncHeaders = new Promise<any>((resolve) => resolve(syncHeaders()))
+
+  const header = await asyncHeaders
+
   const ua = header.get('user-agent') || ''
   const host = header.get('x-forwarded-host') || ''
   const referer = header.get('referer') || ''

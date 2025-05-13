@@ -53,6 +53,7 @@ function PrivateFooter() {
   // @Language 'common'
   const { t } = useTranslation()
 
+  const { country } = useSiteBlueprint()
   const platform = useDevicePlatform()
   const isLogin = useStudentIsLogin()
   const customer = useCustomerInfo()
@@ -95,20 +96,24 @@ function PrivateFooter() {
         <Link href={SITE_PATH.HOME.MEMBERSHIP_PRIVACY_POLICY}>
           <div>{t('t419')}</div>
         </Link>
-        {isShowGroupSearchLink && (
+        {country.korea && isShowGroupSearchLink && (
           <Link href={SITE_PATH.ACCOUNT.GROUP_SEARCH}>
             <div>{t('t259') + ' ' + t('t231')}</div>
           </Link>
         )}
-        <Link href={SITE_PATH.CATALOG.HOME}>Catalog</Link>
-        <Link href={'https://character.readinggate.com/'} target="_blank">
-          <div>DODO & Friends</div>
-        </Link>
-        <Link
-          href={'https://util.readinggate.com/Community/BringInInstitution'}
-          target="_blank">
-          <div>{t('t420')}</div>
-        </Link>
+        {country.korea && (
+          <>
+            <Link href={SITE_PATH.CATALOG.HOME}>Catalog</Link>
+            <Link href={'https://character.readinggate.com/'} target="_blank">
+              <div>{`DODO & Friends`}</div>
+            </Link>
+            <Link
+              href={'https://util.readinggate.com/Community/BringInInstitution'}
+              target="_blank">
+              <div>{t('t420')}</div>
+            </Link>
+          </>
+        )}
       </div>
       <div className={style.row_c}>
         <div style={{ marginBottom: '10px' }}>{address}</div>

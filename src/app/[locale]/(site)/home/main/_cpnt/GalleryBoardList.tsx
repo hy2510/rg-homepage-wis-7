@@ -1,51 +1,34 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
-import { useOnLoadGalleryList } from '@/client/store/home/hook'
 import BoardList from './BoardList'
 
+type GalleryListItem = {
+  title: string
+  date: string
+  link: string
+  imagePath?: string
+}
 export default function GalleryBoardList({
-  linkPath,
-  pagePath,
-  page,
-  grid,
+  list,
+  onPageChange,
 }: {
-  linkPath: string
-  pagePath: string
-  page: number
-  grid?: boolean
+  list: GalleryListItem[]
+  currentPage?: number
+  maxPage?: number
+  onPageChange?: (page: number) => void
 }) {
-  const { payload, loading, error } = useOnLoadGalleryList({ page })
-
-  const noticeList = [
-    ...payload.board.map((board) => {
-      return {
-        title: board.title,
-        image: board.imagePath || undefined,
-        date: board.registDate.split('T')[0],
-        link: `${linkPath}/${board.boardId}`,
-      }
-    }),
-  ]
-  const maxPage = 0
-
-  const route = useRouter()
-  const onPageChange = (page: number) => {
-    route.push(`${pagePath}?page=${page}`)
-  }
-
-  if (noticeList.length === 0) {
+  if (list.length === 0) {
     return (
       <div style={{ margin: '60px 16px' }}>Sorry, there are no posts yet.</div>
     )
   }
   return (
     <BoardList
-      list={noticeList}
-      page={page}
-      maxPage={maxPage}
+      list={list}
       onPageClick={onPageChange}
-      grid={grid}
+      page={1}
+      maxPage={0}
+      grid={true}
     />
   )
 }

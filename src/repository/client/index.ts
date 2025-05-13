@@ -77,6 +77,12 @@ import { getRankingReadingking } from './ranking/readingking'
 import { getRankingReadingkingGroup } from './ranking/readingking-group'
 import { getReadingKingEventPrizeList } from './readingking/event-prize-list'
 import { getReadingKingEventSet } from './readingking/event-prize-set'
+import { deleteBoardGalleryDelete } from './staff/board-gallery-delete'
+import { postBoardGalleryModify } from './staff/board-gallery-modify'
+import { postBoardGalleryWrite } from './staff/board-gallery-write'
+import { deleteBoardNoticeDelete } from './staff/board-notice-delete'
+import { postBoardNoticeModify } from './staff/board-notice-modify'
+import { postBoardNoticeWrite } from './staff/board-notice-write'
 import { putAttendance } from './student/attendance'
 import { putChangeContinuousStudyViewType } from './student/change-continuous-study-view-type'
 import { postChangeGroupClass } from './student/change-group-class'
@@ -206,5 +212,11 @@ const Repository = {
   getBoardCustomerReview,
   getChangeableGroupClassInfo,
   postChangeGroupClass,
+  postBoardNoticeWrite,
+  postBoardNoticeModify,
+  deleteBoardNoticeDelete,
+  postBoardGalleryWrite,
+  postBoardGalleryModify,
+  deleteBoardGalleryDelete,
 }
 export default Repository

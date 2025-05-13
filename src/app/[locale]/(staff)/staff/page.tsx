@@ -11,7 +11,7 @@ export default function Page() {
 
   useEffect(() => {
     if (!open) {
-      router.replace(STAFF_PATH.BOARD)
+      router.replace(STAFF_PATH.NOTICE.MAIN)
     }
   }, [open, router])
 }

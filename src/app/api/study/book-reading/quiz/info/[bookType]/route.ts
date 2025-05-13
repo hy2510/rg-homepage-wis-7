@@ -3,8 +3,7 @@ import { NextRequest } from 'next/server'
 
 export async function GET(
   request: NextRequest,
-  props: { params: Promise<{ bookType: string }> },
+  { params }: { params: { bookType: string } },
 ) {
-  const params = await props.params
   return await commonGet(`${params.bookType}`, request.nextUrl.search)
 }

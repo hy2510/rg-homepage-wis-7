@@ -13,6 +13,7 @@ import Library from '@/repository/server/library'
 export async function GET(request: NextRequest) {
   const authorizationWithCookie = await getAuthorizationWithCookie()
   const token = authorizationWithCookie.getActiveAccessToken()
+
   if (!token) {
     return RouteResponse.invalidAccessToken()
   }
@@ -36,11 +37,15 @@ export async function GET(request: NextRequest) {
       const passCount = Number(book.RgPointCount)
       let GetableRgPoint = bookPoint
 
-      if (
-        (passCount <= 0 && book.OngoingFullEasyCode === '093006') ||
-        (passCount === 1 && earnPoint - bookPoint === 0)
-      ) {
+      if (passCount <= 0 && book.OngoingFullEasyCode === '093006') {
         GetableRgPoint = NumberUtils.toRgDecimalPoint(bookPoint * 0.5)
+      } else if (passCount === 1) {
+        const findMode = findFullEasyMode(bookPoint, earnPoint)
+        if (findMode === 'full') {
+          GetableRgPoint = NumberUtils.toRgDecimalPoint(bookPoint * 0.5)
+        } else if (findMode === 'invalid') {
+          GetableRgPoint = 0
+        }
       } else if (passCount >= 2) {
         GetableRgPoint = 0
       }
@@ -70,6 +75,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   const authorizationWithCookie = await getAuthorizationWithCookie()
   const token = authorizationWithCookie.getActiveAccessToken()
+
   if (!token) {
     return RouteResponse.invalidAccessToken()
   }
@@ -107,6 +113,7 @@ export async function POST(request: NextRequest) {
 export async function DELETE(request: NextRequest) {
   const authorizationWithCookie = await getAuthorizationWithCookie()
   const token = authorizationWithCookie.getActiveAccessToken()
+
   if (!token) {
     return RouteResponse.invalidAccessToken()
   }
@@ -137,4 +144,28 @@ export async function DELETE(request: NextRequest) {
     }
     return RouteResponse.response(payload, status)
   }
+}
+
+// 얻은 포인트를 기준으로 Full 인지 Easy인지 근사값을 추론하는 함수
+// 변동 허용범위는 최대 +-33.3%이므로 30% 바운더리로 설정함.
+function findFullEasyMode(
+  rgPoint: number,
+  earnRgPoint: number,
+): 'full' | 'easy' | 'invalid' {
+  const BOUNDARY = 0.3
+  const xEasy = earnRgPoint * 2
+  const xFull = earnRgPoint
+
+  const easyRange = [xEasy * (1 - BOUNDARY), xEasy * (1 + BOUNDARY)]
+  const fullRange = [xFull * (1 - BOUNDARY), xFull * (1 + BOUNDARY)]
+
+  const isEasyPossible = easyRange[0] <= rgPoint && rgPoint <= easyRange[1]
+  const isFullPossible = fullRange[0] <= rgPoint && rgPoint <= fullRange[1]
+
+  if (isEasyPossible && !isFullPossible) {
+    return 'easy'
+  } else if (!isEasyPossible && isFullPossible) {
+    return 'full'
+  }
+  return 'invalid'
 }

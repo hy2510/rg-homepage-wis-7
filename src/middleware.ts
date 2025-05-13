@@ -18,6 +18,6 @@ export const config = {
      * - favicon.ico (파비콘 파일)
      * - public 폴더 하위 집합 (assets, favicon, manifast, src .. 등등)
      */
-    '/((?!api|_next/static|_next/image|favicon.ico|assets|faviconL.png|faviconL.svg|faviconM.png|faviconM.svg|faviconS.png|faviconS.svg|manifest.json|public|rg-study-result|src|study|paybridge).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|assets|faviconL.png|faviconL.svg|faviconM.png|faviconM.svg|faviconS.png|faviconS.svg|manifest.json|robots.txt|public|rg-study-result|src|study|paybridge).*)',
   ],
 }

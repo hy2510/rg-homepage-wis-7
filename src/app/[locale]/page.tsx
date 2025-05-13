@@ -10,6 +10,13 @@ import {
 import { useApplicationType } from '../_context/AppContext'
 
 export default function Page() {
+  // const authToken = getAuthorizationWithCookie().getActiveAccessToken()
+  // if (authToken) {
+  //   redirect(SITE_PATH.HOME.MAIN)
+  // } else {
+  //   redirect(SITE_PATH.ACCOUNT.MAIN)
+  // }
+
   const router = useRouter()
   const appType = useApplicationType()
   const loginStatus = useStudentInfoFlagLogin()

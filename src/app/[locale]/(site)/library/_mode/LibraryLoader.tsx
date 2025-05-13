@@ -78,7 +78,9 @@ export function LibraryLoader() {
     genre,
     status,
   }
-
+  if (!studentId) {
+    return <></>
+  }
   if (level === 'PK') {
     // return <PreKLoading type={pkType} />
     libraryOption.level = bookType === 'EB' ? 'KA' : 'KC'

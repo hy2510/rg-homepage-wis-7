@@ -5,6 +5,7 @@ import PreK from '@/repository/server/pre-k'
 export async function commonGet(path: string, search?: string) {
   const authorizationWithCookie = await getAuthorizationWithCookie()
   const token = authorizationWithCookie.getActiveAccessToken()
+
   if (!token) {
     return RouteResponse.invalidAccessToken()
   }
@@ -24,6 +25,7 @@ export async function commonGet(path: string, search?: string) {
 export async function commonPost(path: string, data?: unknown) {
   const authorizationWithCookie = await getAuthorizationWithCookie()
   const token = authorizationWithCookie.getActiveAccessToken()
+
   if (!token) {
     return RouteResponse.invalidAccessToken()
   }

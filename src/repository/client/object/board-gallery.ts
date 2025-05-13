@@ -22,7 +22,10 @@ export interface BoardGallery {
   mdifierName: string
   prevBoardId: string
   nextBoardId: string
-  imagePath: string
+  editableYn: boolean
+  attachImageName: string
+  attachOriginImageName: string
+  attachImagePath: string
 }
 
 export function makeBoardGallery(json?: any): BoardGallery {
@@ -48,6 +51,9 @@ export function makeBoardGallery(json?: any): BoardGallery {
     mdifierName: RenewType.renewString(json?.ModifierName),
     prevBoardId: RenewType.renewString(json?.PrevBoardId),
     nextBoardId: RenewType.renewString(json?.NextBoardId),
-    imagePath: RenewType.renewString(json?.ImagePath),
+    editableYn: RenewType.renewBoolean(json?.EditableYn),
+    attachImageName: RenewType.renewString(json?.AttachImageName),
+    attachOriginImageName: RenewType.renewString(json?.AttachOriginImageName),
+    attachImagePath: RenewType.renewString(json?.AttachImagePath),
   }
 }

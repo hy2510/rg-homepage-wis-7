@@ -1,5 +1,6 @@
 'use client'
 
+import { useTrack } from '@/external/marketing-tracker/component/MarketingTrackerContext'
 import useTranslation from '@/localization/client/useTranslations'
 import { useEffect, useState } from 'react'
 import { Modal } from '@/ui/common/common-components'
@@ -22,10 +23,12 @@ export type PurchaseRequest = {
 
 export default function PurchaseProcess({
   request,
+  currency = 'KRW',
   onPurchaseResult,
   onCancel,
 }: {
   request: PurchaseRequest
+  currency?: string
   onPurchaseResult?: (result: {
     isSuccess: boolean
     code: number
@@ -58,6 +61,8 @@ export default function PurchaseProcess({
   // @Language 'common'
   const { t } = useTranslation()
 
+  const maketingEventTracker = useTrack()
+
   useEffect(() => {
     const messageHandler = (e: MessageEvent) => {
       if (e.origin === PURCHASE_RESULT_ORIGIN) {
@@ -68,6 +73,12 @@ export default function PurchaseProcess({
         if (data.Status !== 'Complete') {
           code = -1000
           message = t('t705') // 결제에 실패하였습니다.
+        }
+        if (code === 0) {
+          maketingEventTracker.eventAction('Purchase', {
+            value: request.price,
+            currency,
+          })
         }
         onPurchaseResult &&
           onPurchaseResult({ isSuccess: code === 0, code, message })

@@ -149,6 +149,8 @@ function SuspendView({
     })
   }
 
+  const suspendMessages = t('t588').split('\n')
+
   return (
     <>
       <div className={style.suspend_view}>
@@ -167,10 +169,16 @@ function SuspendView({
             </>
           )}
         </div>
-        {/* 학습 일시 중지는 연 3회까지 사용할 수 있습니다. 1회 신청 시 30일간 잔여 학습일 수 차감을 막을 수 있으며, 일시 중지 기간 안에 해지할 수도 있습니다. */}
-        {/* (단, 학습 일시 중지 신청 당일은 해지가 안됩니다.) */}
+        {/* 1) 매년 3회씩 사용할 수 있습니다. (ex: 매년 1월 1일 3회 재생성)\n 2) 1회 신청 시 최대30일 중지가 가능하며, 일시중지 기간동안 학습일수는 차감되지 않습니다.\n 3)  일시 중지 기간안에도 해지하여 다시 학습이 가능합니다. (단, 중지 신청 당일 해지불가. 익일부터 해지가능)\n 4) 일시 중지 상태에서는 티켓등록 및 학습일 결제가 되지 않습니다. */}
         <div className={style.txt_3}>
-          {t('t588')} <br /> {t('t589')}
+          {suspendMessages.map((msg, i) => {
+            return (
+              <span key={`msg_${i}`}>
+                {msg}
+                <br />
+              </span>
+            )
+          })}
         </div>
 
         <div></div>

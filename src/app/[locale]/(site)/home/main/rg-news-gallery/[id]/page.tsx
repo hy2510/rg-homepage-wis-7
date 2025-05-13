@@ -1,6 +1,5 @@
 import GalleryBoardDetail from '../../_cpnt/GalleryBoardDetail'
 
-export default async function Page(props: { params: Promise<{ id: string }> }) {
-  const params = await props.params
+export default function Page({ params }: { params: { id: string } }) {
   return <GalleryBoardDetail id={params.id} />
 }

@@ -141,17 +141,17 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
             <>
               <Nav>
                 <NavItem
-                  active={pathname.indexOf(STAFF_PATH.BOARD) >= 0}
+                  active={pathname.indexOf(STAFF_PATH.NOTICE.MAIN) >= 0}
                   onClick={() => {
-                    router.push(STAFF_PATH.BOARD)
+                    router.push(STAFF_PATH.NOTICE.MAIN)
                   }}>
                   공지
                 </NavItem>
                 {target.academy && (
                   <NavItem
-                    active={pathname.indexOf(STAFF_PATH.GALLERY) >= 0}
+                    active={pathname.indexOf(STAFF_PATH.GALLERY.MAIN) >= 0}
                     onClick={() => {
-                      router.push(STAFF_PATH.GALLERY)
+                      router.push(STAFF_PATH.GALLERY.MAIN)
                     }}>
                     갤러리
                   </NavItem>

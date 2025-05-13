@@ -1,5 +1,5 @@
 import { getAuthorizationWithCookie } from '@/authorization/server/nextjsCookieAuthorization'
-import { headers } from 'next/headers'
+import { headers as syncHeaders } from 'next/headers'
 import { userAgent } from 'next/server'
 import { ReactNode } from 'react'
 import { makeCustomer } from '@/repository/client/object/customer'
@@ -13,8 +13,10 @@ type CustomerPayload = {
   applicationType: string
   customerData?: string
 }
-
-async function getData(url: string, token?: string): Promise<CustomerPayload> {
+const getData = async (
+  url: string,
+  token?: string,
+): Promise<CustomerPayload> => {
   let homepageUrl = url
   if (TARGET_HOMEPAGE && TARGET_HOMEPAGE !== 'N') {
     homepageUrl = TARGET_HOMEPAGE
@@ -68,9 +70,10 @@ async function getData(url: string, token?: string): Promise<CustomerPayload> {
 }
 
 async function getUserAgentInfoTag() {
-  const uaObj = userAgent({
-    headers: await headers(),
-  })
+  const asyncHeaders = new Promise<any>((resolve) => resolve(syncHeaders()))
+  const header = await asyncHeaders
+
+  const uaObj = userAgent({ headers: header })
   const browswer =
     `${(uaObj?.browser?.name || 'Unknown').replace(/ /g, '')}(${uaObj?.browser?.version?.split('.')[0] || '?'}/${(uaObj?.os?.name || '?').replace(/ /g, '')})`.replace(
       /_/g,
@@ -85,17 +88,20 @@ export default async function AppLoader({
 }: {
   children?: ReactNode
 }) {
-  const header = await headers()
+  const asyncHeaders = new Promise<any>((resolve) => resolve(syncHeaders()))
+
+  const header = await asyncHeaders
   const authorizationWithCookie = await getAuthorizationWithCookie()
   const findHost = header.get('host') || ''
   const token = authorizationWithCookie.getActiveAccessToken()
   const data = await getData(findHost, token)
-  const userAgentTag = await getUserAgentInfoTag()
   const userDetails = token
     ? authorizationWithCookie.getTokenUserDetails()
     : undefined
-  const isStaffAccess = userDetails?.role === 'staff'
+  const isStaffAccess =
+    userDetails?.role === 'staff' || userDetails?.role === 'admin'
   const isLogin = !!userDetails?.uid
+  const userAgentTag = await getUserAgentInfoTag()
 
   if (data) {
     return (

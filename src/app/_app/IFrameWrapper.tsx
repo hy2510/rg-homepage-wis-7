@@ -33,7 +33,7 @@ export default function IFrameWrapper({
 }
 
 export function useRefIframeHeight(): {
-  iframeRef: RefObject<HTMLIFrameElement | null>
+  iframeRef: RefObject<HTMLIFrameElement>
   onIframeLoad: () => void
   height: number
 } {

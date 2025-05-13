@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
     }
     const authorization = createAuthorization(token)
     const user = authorization.getTokenUserDetails()
-    if (user?.role === 'staff') {
+    if (user?.role === 'staff' || user?.role === 'admin') {
       if (t === 'student') {
         const hash = btoa(JSON.stringify(token))
         const nextResponse = NextResponse.json(

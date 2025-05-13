@@ -2,6 +2,7 @@
 
 import { useLoginAction } from '@/app/_context/LoginContext'
 import SITE_PATH from '@/app/site-path'
+import { useTrack } from '@/external/marketing-tracker/component/MarketingTrackerContext'
 import useTranslation from '@/localization/client/useTranslations'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
@@ -42,6 +43,8 @@ type SignupParams = {
 export default function SignupVN({ style }: { style: Record<string, string> }) {
   // @Language 'common'
   const { t } = useTranslation()
+
+  const maketingEventTracker = useTrack()
 
   const isLogin = useStudentIsLogin()
 
@@ -232,6 +235,7 @@ export default function SignupVN({ style }: { style: Record<string, string> }) {
       callback: (data) => {
         if (data.success) {
           setLoginAction(true)
+          maketingEventTracker.eventAction('CompleteRegistration')
           onLogin({
             id: signupParams.email,
             password: signupParams.password,

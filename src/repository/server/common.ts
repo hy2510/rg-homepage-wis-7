@@ -125,7 +125,7 @@ export default Common
 const IS_DEV_DB = process.env.DB_CONNECT_DEV === 'Y'
 const customer = {
   Token:
-    '46ab09a39d4f4386d252eb2d4e0e1a0aeec162a787fbee52911c8d7bf7ff2cee6e6a99839c0adb17c8354dc40e6b8829da7753fcc5579d11bd11e00394986c77',
+    '46ab09a39d4f4386d252eb2d4e0e1a0aeec162a787fbee52911c8d7bf7ff2cee254fbf7d55851851ab336515ee28be7705f9c1c13a1740666ec7b6a84e02eb93e2d0c1f1df437634c6d231de562f0329',
   Customer: {
     CustomerId: '001104',
     Name: '개인회원(DEV)',

@@ -22,6 +22,7 @@ import {
 import {
   AdBannerType1,
   HomeBanner,
+  HomeBannerDonation,
   HomeCustomerCenterGlobal,
 } from '@/ui/modules/home-main-components/home-main-ad-banners'
 import LogIn from '@/ui/modules/home-main-components/home-main-log-in'
@@ -175,13 +176,9 @@ function MainComponent({ platform }: { platform: string }) {
             bgImage="/src/images/@home/cards/ranking.png"
             href="/ranking"
           />
-          <AdBannerType1
-            title={''}
-            href={'https://blog.naver.com/readinggate_official/223396684842'}
-            target="_blank"
-            imgSrc={'/src/sample-images/@home/cards/donation_campaign_eng.png'}
-            width={640}
-            height={640}
+          <HomeBannerDonation
+            link="https://blog.naver.com/readinggate_official/223785592097"
+            donation={mainData.campaign}
           />
         </div>
         <div className={style.row_6}>

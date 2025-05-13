@@ -316,14 +316,12 @@ const BookReadingMode = ({ initLevel }: { initLevel: string }) => {
     })
   }
 
-  const eventSymbolImage = '/src/images/@challenge-board/challenge_symbol.png'
   const isTodayStudy = useStudentTodayStudy().payload.totalPoint > 0
   return (
     <>
       {mode === 'challenge' && (
         <>
           <ChallengeBoard
-            symbolImgSrc={eventSymbolImage}
             challengeTitle={readingkingInfo.eventTitle}
             startDate={readingkingInfo.startDate}
             endDate={readingkingInfo.endDate}

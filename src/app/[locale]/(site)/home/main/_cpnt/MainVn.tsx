@@ -148,7 +148,7 @@ function MainComponent({ platform }: { platform: string }) {
             />
             <AdBannerType1
               title={''}
-              href={'/home/main/rg-news-post/1523'}
+              href={'/home/main/rg-news-post/1526'}
               imgSrc={'/src/sample-images/@home/cards/king_of_reading_vn.png'}
               width={640}
               height={640}

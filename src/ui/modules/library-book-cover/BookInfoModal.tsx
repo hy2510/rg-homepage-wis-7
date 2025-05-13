@@ -458,11 +458,33 @@ export function BookInfoModal({
   }
 
   const onClickStartEasy = () => {
-    goStudyModeSetAndStart(bookInfo, 'easy')
+    const openDate = DateUtils.createDate(bookInfo.openDate)
+    if (Date.now() >= openDate.getTime()) {
+      goStudyModeSetAndStart(bookInfo, 'easy')
+    } else {
+      alert(
+        t('t788', {
+          year: openDate.getFullYear(),
+          month: openDate.getMonth() + 1,
+          day: openDate.getDate(),
+        }), // 이 학습은 ${openDate.getFullYear()}년 ${openDate.getMonth() + 1}월 ${openDate.getDate()}일부터 시작 가능합니다.
+      )
+    }
   }
 
   const onClickStartFull = () => {
-    goStudyModeSetAndStart(bookInfo, 'full')
+    const openDate = DateUtils.createDate(bookInfo.openDate)
+    if (Date.now() >= openDate.getTime()) {
+      goStudyModeSetAndStart(bookInfo, 'full')
+    } else {
+      alert(
+        t('t788', {
+          year: openDate.getFullYear(),
+          month: openDate.getMonth() + 1,
+          day: openDate.getDate(),
+        }), // 이 학습은 ${openDate.getFullYear()}년 ${openDate.getMonth() + 1}월 ${openDate.getDate()}일부터 시작 가능합니다.
+      )
+    }
   }
 
   const onClickStartSpeak = () => {
@@ -808,7 +830,7 @@ export function BookInfoModal({
                               onStudyEndMessage()
                             }
                           }}
-                          onClickDelete={() => {
+                          onCancel={() => {
                             setViewVocaPrintOptions(false)
                           }}
                         />

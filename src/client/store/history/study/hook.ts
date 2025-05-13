@@ -262,12 +262,12 @@ export function useFetchStudyReportRange() {
       startDate.setDate(startDate.getDate() - pRange + 1)
       const endDate = new Date()
 
-      const startDateOption = {
+      const startDateOption: DateObject = {
         year: startDate.getFullYear(),
         month: startDate.getMonth() + 1,
         day: startDate.getDate(),
       }
-      const endDateOption = {
+      const endDateOption: DateObject = {
         year: endDate.getFullYear(),
         month: endDate.getMonth() + 1,
         day: endDate.getDate(),

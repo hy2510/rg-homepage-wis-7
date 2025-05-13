@@ -7,6 +7,7 @@ import { RouteResponse, executeRequestAction, getParameters } from '../../_util'
 export async function GET(request: NextRequest) {
   const authorizationWithCookie = await getAuthorizationWithCookie()
   const token = authorizationWithCookie.getActiveAccessToken()
+
   if (!token) {
     return RouteResponse.invalidAccessToken()
   }

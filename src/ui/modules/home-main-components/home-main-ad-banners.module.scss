@@ -168,7 +168,7 @@
     &.txt_white {
       color: var(--white);
       &::after {
-        background-image: url('/src/images/arrow-icons/chv_right_white.svg');  
+        background-image: url('/src/images/arrow-icons/chv_right_white.svg');
       }
     }
     &::after {
@@ -233,49 +233,49 @@
       border-radius: var(--round-full);
       position: relative;
       &.bg001 {
-        background-color: #53C950;
+        background-color: #53c950;
         .bg_image {
           background-image: url('/src/images/@home/customer_center/001.svg');
         }
       }
       &.bg002 {
-        background-color: #EFAE3A;
+        background-color: #efae3a;
         .bg_image {
           background-image: url('/src/images/@home/customer_center/002.svg');
         }
       }
       &.bg002_1 {
-        background-color: #EA6E0F;
+        background-color: #ea6e0f;
         .bg_image {
           background-image: url('/src/images/@home/customer_center/002_1.svg');
         }
       }
       &.bg003 {
-        background-color: #EF5450;
+        background-color: #ef5450;
         .bg_image {
           background-image: url('/src/images/@home/customer_center/003.svg');
         }
       }
       &.bg004 {
-        background-color: #3E7EC0;
+        background-color: #3e7ec0;
         .bg_image {
           background-image: url('/src/images/@home/customer_center/004.svg');
         }
       }
       &.bg005 {
-        background-color: #28D3B2;
+        background-color: #28d3b2;
         .bg_image {
           background-image: url('/src/images/@home/customer_center/005.svg');
         }
       }
       &.bg006 {
-        background-color: #222B52;
+        background-color: #222b52;
         .bg_image {
           background-image: url('/src/images/@home/customer_center/006.svg');
         }
       }
       &.bg007 {
-        background-color: #5B2390;
+        background-color: #5b2390;
         .bg_image {
           background-image: url('/src/images/@home/customer_center/007.svg');
         }
@@ -290,6 +290,20 @@
         background-size: 50px auto;
         background-repeat: no-repeat;
       }
+    }
+  }
+  .donation {
+    text-align: center;
+    margin-top: 36px;
+    color: var(--yellow);
+    .unit {
+      font-size: var(--text-xxl);
+      font-weight: 500;
+      padding: var(--space-xxs);
+    }
+    .value {
+      font-size: var(--text-xl);
+      font-weight: 500;
     }
   }
   @media (pointer: coarse) {
@@ -358,7 +372,7 @@
       &.txt_white {
         color: var(--white);
         &::after {
-          background-image: url('/src/images/arrow-icons/chv_right_white.svg');  
+          background-image: url('/src/images/arrow-icons/chv_right_white.svg');
         }
       }
       &::after {
@@ -428,43 +442,43 @@
         border-radius: var(--round-full);
         position: relative;
         &.bg001 {
-          background-color: #53C950;
+          background-color: #53c950;
           .bg_image {
             background-image: url('/src/images/@home/customer_center/001.svg');
           }
         }
         &.bg002 {
-          background-color: #EFAE3A;
+          background-color: #efae3a;
           .bg_image {
             background-image: url('/src/images/@home/customer_center/002.svg');
           }
         }
         &.bg003 {
-          background-color: #EF5450;
+          background-color: #ef5450;
           .bg_image {
             background-image: url('/src/images/@home/customer_center/003.svg');
           }
         }
         &.bg004 {
-          background-color: #3E7EC0;
+          background-color: #3e7ec0;
           .bg_image {
             background-image: url('/src/images/@home/customer_center/004.svg');
           }
         }
         &.bg005 {
-          background-color: #28D3B2;
+          background-color: #28d3b2;
           .bg_image {
             background-image: url('/src/images/@home/customer_center/005.svg');
           }
         }
         &.bg006 {
-          background-color: #222B52;
+          background-color: #222b52;
           .bg_image {
             background-image: url('/src/images/@home/customer_center/006.svg');
           }
         }
         &.bg007 {
-          background-color: #5B2390;
+          background-color: #5b2390;
           .bg_image {
             background-image: url('/src/images/@home/customer_center/007.svg');
           }
@@ -479,6 +493,20 @@
           background-size: 50px auto;
           background-repeat: no-repeat;
         }
+      }
+    }
+    .donation {
+      text-align: center;
+      margin-top: 20px;
+      color: var(--yellow);
+      .unit {
+        font-size: var(--text-xxl);
+        font-weight: 500;
+        padding: var(--space-xxs);
+      }
+      .value {
+        font-size: var(--text-xl);
+        font-weight: 500;
       }
     }
   }
@@ -525,12 +553,12 @@
         }
       }
       &.woodo {
-        background-color: #2B63D7;
+        background-color: #2b63d7;
         background-image: url('/src/images/@home/channer/woodo_logo.png');
         background-size: auto calc(100% - 30px);
       }
       &.millie {
-        background-color: #FFEB60;
+        background-color: #ffeb60;
         background-image: url('/src/images/@home/channer/millie_logo.png');
         background-size: auto calc(100% - 40px);
       }
@@ -541,12 +569,12 @@
       }
       @media (pointer: coarse) {
         &.woodo {
-          background-color: #2B63D7;
+          background-color: #2b63d7;
           background-image: url('/src/images/@home/channer/woodo_logo.png');
           background-size: auto calc(100% - 10px);
         }
         &.millie {
-          background-color: #FFEB60;
+          background-color: #ffeb60;
           background-image: url('/src/images/@home/channer/millie_logo.png');
           background-size: auto calc(100% - 20px);
         }

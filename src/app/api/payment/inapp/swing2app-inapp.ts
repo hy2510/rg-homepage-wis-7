@@ -359,6 +359,7 @@ export async function androidValidateInappConsumeReceipt({
 }): Promise<{ success: boolean; code: number; message: string; extra?: any }> {
   let code = -9999
   let message = ''
+  const extra: any = undefined
 
   const infoRes = await getAndroidPurchaseInfo({ token, productId })
 
@@ -393,14 +394,14 @@ export async function androidValidateInappConsumeReceipt({
       success: false,
       code,
       message,
-      extra: undefined,
+      extra,
     }
   }
   return {
     success: code === 0,
     code,
     message,
-    extra: undefined,
+    extra,
   }
 }
 

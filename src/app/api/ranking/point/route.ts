@@ -11,6 +11,7 @@ import Ranking from '@/repository/server/ranking'
 export async function GET(request: NextRequest) {
   const authorizationWithCookie = await getAuthorizationWithCookie()
   const token = authorizationWithCookie.getActiveAccessToken()
+
   let customer = undefined
   if (!token) {
     customer = await getCustomerWithHeader()

@@ -2,17 +2,17 @@
 
 import SITE_PATH from '@/app/site-path'
 import { useRouter } from 'next/navigation'
-import { use } from 'react'
 import { useOnLoadCustomerReviewDetail } from '@/client/store/home/hook'
 import { useStyle } from '@/ui/context/StyleContext'
 import { ReviewContents } from '@/ui/modules/home-customer-review-components/review-contents'
 
 const STYLE_ID = 'page_parents_content'
 
-export default function Page(props: {
-  params: Promise<{ writeType: string; id: string }>
+export default function Page({
+  params,
+}: {
+  params: { writeType: string; id: string }
 }) {
-  const params = use(props.params)
   const style = useStyle(STYLE_ID)
 
   const writeType = params.writeType

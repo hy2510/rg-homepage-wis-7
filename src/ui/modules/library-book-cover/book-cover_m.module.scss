@@ -148,7 +148,7 @@
         max-width: 100px;
         margin: auto;
         color: var(--black);
-        text-align: center; 
+        text-align: center;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -503,6 +503,61 @@
     align-items: center;
     gap: var(--space-xxs);
   }
+}
+.voca_print_options_modal {
+  min-width: 360px;
+  min-height: 200px;
+  background-color: var(--white);
+  border-radius: var(--round-m);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--black);
+  padding: var(--space-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  z-index: 100;
+  @media (prefers-color-scheme: no-preference) {
+    background-color: #0c0541;
+    color: var(--white);
+  }
+  .btn_delete {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-image: url('/src/images/delete-icons/x_black.svg');
+    background-size: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    @media (prefers-color-scheme: no-preference) {
+      background-image: url('/src/images/delete-icons/x_white.svg');
+    }
+  }
+  .title {
+    font-size: var(--text-l);
+    font-weight: 600;
+  }
+  .check_item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xxs);
+  }
+}
+/* 가상 요소로 오버레이 */
+.voca_print_options_modal_bg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* 어두운 배경 */
+  z-index: 100; /* 모달 뒤에 */
 }
 
 .scale_in_center {

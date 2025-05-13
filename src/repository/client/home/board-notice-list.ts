@@ -18,6 +18,7 @@ type Output = {
     totalPages: number
     totalRecords: number
   }
+  writable?: boolean
 }
 
 async function action(input: Input): Promise<ApiResponse<Output>> {
@@ -38,6 +39,7 @@ async function action(input: Input): Promise<ApiResponse<Output>> {
         totalPages: Number(json.Pagination.TotalPages),
         totalRecords: Number(json.Pagination.TotalRecords),
       },
+      writable: json.Writable,
     }
   })
 }

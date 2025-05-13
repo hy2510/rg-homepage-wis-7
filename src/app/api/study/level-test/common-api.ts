@@ -5,6 +5,7 @@ import LevelTest from '@/repository/server/level-test'
 export async function commonGet(path: string, search?: string) {
   const authorizationWithCookie = await getAuthorizationWithCookie()
   const token = authorizationWithCookie.getActiveAccessToken()
+
   if (!token) {
     return RouteResponse.invalidAccessToken()
   }

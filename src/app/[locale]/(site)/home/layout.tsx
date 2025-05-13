@@ -109,7 +109,8 @@ export default function Layout({ children }: { children?: ReactNode }) {
       </div>
       {country.korea && (
         <div className={style.chatbot_area}>
-          {target.private && (
+          {/* 학원 도입비 무료 프로모션 종료로 배지 숨김(false) 처리 */}
+          {false && target.private && (
             <a href={EXTERNAL_URL.academyPromotion} target="_blank">
               <div
                 className={style.chat_icon}

@@ -179,6 +179,7 @@ export default function Purchase({
       {paymentInfo && (
         <PurchaseProcess
           request={paymentInfo}
+          currency={currency}
           onPurchaseResult={onPaymentResult}
           onCancel={() => {
             setPaymentInfo(undefined)

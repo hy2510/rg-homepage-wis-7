@@ -9,15 +9,12 @@ import Home from '@/repository/server/home'
 
 export async function GET(
   request: NextRequest,
-  props: { params: Promise<{ writeType: string }> },
+  { params }: { params: { writeType: string } },
 ) {
-  const params = await props.params
   const customer = await getCustomerWithHeader()
   if (!customer) {
     return RouteResponse.invalidCustomerToken()
   }
-
-  console.log('page ', params)
 
   const parameter = await getParameters(request, 'page')
   const page = parameter.getString('page', '1')

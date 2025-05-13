@@ -5,9 +5,8 @@ import Home from '@/repository/server/home'
 
 export async function GET(
   request: NextRequest,
-  props: { params: Promise<{ writeType: string; id: string }> },
+  { params }: { params: { writeType: string; id: string } },
 ) {
-  const params = await props.params
   const customer = await getCustomerWithHeader()
   if (!customer) {
     return RouteResponse.invalidCustomerToken()

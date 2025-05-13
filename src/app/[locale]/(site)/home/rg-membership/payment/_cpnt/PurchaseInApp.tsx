@@ -1,6 +1,7 @@
 'use client'
 
 import SITE_PATH from '@/app/site-path'
+import { useTrack } from '@/external/marketing-tracker/component/MarketingTrackerContext'
 import useTranslation from '@/localization/client/useTranslations'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -27,6 +28,8 @@ export default function PurchaseInApp({
 
   // @Language 'common'
   const { t } = useTranslation()
+
+  const maketingEventTracker = useTrack()
 
   const router = useRouter()
   const userPhone = useStudentInfoMainPhone()
@@ -74,6 +77,10 @@ export default function PurchaseInApp({
         itemId,
         callback: (isSuccess, errorCode) => {
           if (isSuccess) {
+            maketingEventTracker.eventAction('Purchase', {
+              value: targetProduct.totalFee,
+              currency,
+            })
             alert(t('t694')) // 결제가 완료 되었습니다.
             router.push(SITE_PATH.HOME.MEMBERSHIP_PAYMENT_HISTORY)
           } else {

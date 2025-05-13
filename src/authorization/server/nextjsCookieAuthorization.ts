@@ -1,4 +1,4 @@
-import { cookies } from 'next/headers'
+import { cookies as syncCookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 import { Authorization, createAuthorization } from './authorize'
 import AuthorizeToken, { deserializeToken, serializeToken } from './token'
@@ -10,16 +10,17 @@ const TOKEN_COOKIE_KEY = 'token'
  * @returns Authorization 객체
  */
 export async function getAuthorizationWithCookie(): Promise<Authorization> {
-  const cookie = await cookies()
-  const token = cookie.get(TOKEN_COOKIE_KEY)
-  let auth: Authorization = createAuthorization(undefined)
-  if (token) {
-    const val = token.value
-    try {
-      auth = createAuthorization(deserializeToken(val))
-    } catch (error) {}
+  const asyncCookies = new Promise<any>((resolve) => resolve(syncCookies()))
+  const cookie = await asyncCookies
+
+  let authorizeToken: AuthorizeToken | undefined = undefined
+  if (cookie) {
+    const item = cookie.get(TOKEN_COOKIE_KEY)
+    if (item) {
+      authorizeToken = deserializeToken(item.value)
+    }
   }
-  return auth
+  return createAuthorization(authorizeToken)
 }
 
 /**

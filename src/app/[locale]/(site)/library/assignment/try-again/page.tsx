@@ -11,6 +11,7 @@ import PaginationBar from '@/ui/common/PaginationBar'
 import { AlertBar, Dropdown } from '@/ui/common/common-components'
 import { useStyle } from '@/ui/context/StyleContext'
 import LoadingScreen from '@/ui/modules/LoadingScreen'
+import VocaPrintOptions from '@/ui/modules/library-book-cover/VocaPrintOptions'
 import { BookCover } from '@/ui/modules/library-book-cover/book-cover'
 import {
   ExportItem,
@@ -61,6 +62,8 @@ function TryAgain() {
     targetStudentHistoryList,
     targetStudentHistoryId,
     onSelectStudentHistory,
+    isSettingVocabularyOption,
+    onVocabularyOption,
     onExportCancel,
   } = useExport()
 
@@ -169,6 +172,17 @@ function TryAgain() {
             defaultStudentHistoryId={targetStudentHistoryId}
             onCloseModal={onExportCancel}
             onSelectStudentHistoryId={onSelectStudentHistory}
+          />
+        )}
+        {isSettingVocabularyOption && (
+          <VocaPrintOptions
+            visibleType="modal"
+            onClick={(option) => {
+              onVocabularyOption(option)
+            }}
+            onCancel={() => {
+              onExportCancel()
+            }}
           />
         )}
       </main>

@@ -21,6 +21,7 @@ import {
   useLatestStudentHistoryId,
   useStudentHistory,
 } from '@/client/store/student/history/selector'
+import { VocabularyOption } from '@/ui/modules/library-book-cover/VocaPrintOptions'
 
 export type ExportAction =
   | 'add-todo'
@@ -28,6 +29,7 @@ export type ExportAction =
   | 'delete-todo'
   | 'delete-favorite'
   | 'vocabulary'
+  | 'vocabulary-with-option'
   | 'book-list'
   | 'report'
   | 'list'
@@ -207,6 +209,50 @@ export default function useExport() {
     })
   }
 
+  const onExportVocabularyWithOption = (
+    levelRoundIds: string[],
+    studentHistoryId: string,
+    option: VocabularyOption,
+  ) => {
+    exportVocabulary({
+      levelRoundIds,
+      studentHistoryId,
+      callback: ({ success, payload, error }) => {
+        if (success && payload) {
+          const url = new URL(payload)
+          const params = new URLSearchParams(url.search)
+
+          const paramsMap = new Map()
+          params.forEach((value, key) => {
+            paramsMap.set(key, value)
+          })
+          paramsMap.set('args4', option.vocabulary ? 'Y' : 'N')
+          if (option.definition1) {
+            paramsMap.set('args5', option.definition1Value)
+          } else {
+            paramsMap.set('args5', 'N')
+          }
+          paramsMap.set('args6', option.definition2 ? 'Y' : 'N')
+          paramsMap.set('args7', option.exampleSentence ? 'Y' : 'N')
+          paramsMap.set('args8', option.studentName ? 'Y' : 'N')
+          const searchParams = new URLSearchParams()
+          paramsMap.forEach((value, key) => {
+            searchParams.append(key, value)
+          })
+          const queryString = searchParams.toString()
+
+          const vocabularyUrl = `${url.protocol}//${url.host}${url.pathname}?${queryString}`
+
+          openWindow(vocabularyUrl, {
+            external: true,
+            target: '_blank',
+            feature: 'noopener, noreferrer',
+          })
+        }
+      },
+    })
+  }
+
   const onExportBookLists = (levelRoundIds: string[]) => {
     exportBookList({
       levelRoundIds,
@@ -239,7 +285,9 @@ export default function useExport() {
       return
     }
     const isDependencyStudentHistory =
-      action === 'add-todo' || action === 'vocabulary'
+      action === 'add-todo' ||
+      action === 'vocabulary' ||
+      action === 'vocabulary-with-option'
     if (isDependencyStudentHistory) {
       setSelectedAction(action)
     } else {
@@ -303,6 +351,18 @@ export default function useExport() {
     }
   }
 
+  const onVocabularyOption = (option: VocabularyOption) => {
+    if (targetStudentHistoryId) {
+      const levelRoundIds = getSelectedItems().map((item) => item.levelRoundId)
+      onExportVocabularyWithOption(
+        levelRoundIds,
+        targetStudentHistoryId,
+        option,
+      )
+      setSelectedAction(undefined)
+    }
+  }
+
   const onExportCancel = () => {
     setSelectedAction(undefined)
   }
@@ -315,6 +375,8 @@ export default function useExport() {
     classId: string
     className: string
   }[] = []
+  let isSettingVocabularyOption = false
+
   if (isSelectMode) {
     if (selectedAction === 'add-todo') {
       const todoStudentHistoryList = studentHistoryList.filter(
@@ -334,6 +396,8 @@ export default function useExport() {
         isSelectStudentHistory = true
         targetStudentHistoryList = [...studentHistoryList]
       }
+    } else if (selectedAction === 'vocabulary-with-option') {
+      isSettingVocabularyOption = true
     }
   }
 
@@ -351,6 +415,8 @@ export default function useExport() {
     targetStudentHistoryList,
     targetStudentHistoryId,
     onSelectStudentHistory,
+    isSettingVocabularyOption,
+    onVocabularyOption,
     onExportCancel,
   }
 }
@@ -367,7 +433,7 @@ export function useSupportExportActionSearch(): {
   const result: { action: ExportAction; label: string }[] = []
   if (historyCount > 0) {
     result.push({
-      action: 'vocabulary',
+      action: 'vocabulary-with-option',
       label: 'Vocabulary',
     })
   }
@@ -398,7 +464,7 @@ export function useSupportExportActionTodo(): {
   const result: { action: ExportAction; label: string }[] = []
   if (historyCount > 0) {
     result.push({
-      action: 'vocabulary',
+      action: 'vocabulary-with-option',
       label: 'Vocabulary',
     })
   }
@@ -419,7 +485,7 @@ export function useSupportExportActionFavorite(): {
   const result: { action: ExportAction; label: string }[] = []
   if (historyCount > 0) {
     result.push({
-      action: 'vocabulary',
+      action: 'vocabulary-with-option',
       label: 'Vocabulary',
     })
   }
@@ -440,7 +506,7 @@ export function useSupportExportActionReport(): {
   const result: { action: ExportAction; label: string }[] = []
   if (historyCount > 0) {
     result.push({
-      action: 'vocabulary',
+      action: 'vocabulary-with-option',
       label: 'Vocabulary',
     })
     result.push({

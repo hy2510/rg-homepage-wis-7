@@ -17,6 +17,7 @@ import {
   NavItem,
 } from '@/ui/common/common-components'
 import { useStyle } from '@/ui/context/StyleContext'
+import VocaPrintOptions from '@/ui/modules/library-book-cover/VocaPrintOptions'
 import { BookCover } from '@/ui/modules/library-book-cover/book-cover'
 import {
   ExportItem,
@@ -87,6 +88,8 @@ function SearchLayout({ keyword }: { keyword: string }) {
     targetStudentHistoryList,
     targetStudentHistoryId,
     onSelectStudentHistory,
+    isSettingVocabularyOption,
+    onVocabularyOption,
     onExportCancel,
   } = useExport()
 
@@ -255,6 +258,17 @@ function SearchLayout({ keyword }: { keyword: string }) {
           defaultStudentHistoryId={targetStudentHistoryId}
           onCloseModal={onExportCancel}
           onSelectStudentHistoryId={onSelectStudentHistory}
+        />
+      )}
+      {isSettingVocabularyOption && (
+        <VocaPrintOptions
+          visibleType="modal"
+          onClick={(option) => {
+            onVocabularyOption(option)
+          }}
+          onCancel={() => {
+            onExportCancel()
+          }}
         />
       )}
     </main>

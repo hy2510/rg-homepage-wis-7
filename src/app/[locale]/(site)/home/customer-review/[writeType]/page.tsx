@@ -2,7 +2,6 @@
 
 import SITE_PATH from '@/app/site-path'
 import { useRouter } from 'next/navigation'
-import { use } from 'react'
 import { useOnLoadCustomerReviewList } from '@/client/store/home/hook'
 import PaginationBar from '@/ui/common/PaginationBar'
 import { useStyle } from '@/ui/context/StyleContext'
@@ -14,12 +13,13 @@ import {
 
 const STYLE_ID = 'page_parents'
 
-export default function Page(props: {
-  searchParams: Promise<{ page: string }>
-  params: Promise<{ writeType: string; id: string }>
+export default function Page({
+  searchParams,
+  params,
+}: {
+  searchParams: { page: string }
+  params: { writeType: string; id: string }
 }) {
-  const params = use(props.params)
-  const searchParams = use(props.searchParams)
   const style = useStyle(STYLE_ID)
 
   const writeType = params.writeType

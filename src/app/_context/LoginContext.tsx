@@ -17,6 +17,7 @@ import {
   useCustomerInfo,
 } from '@/app/_context/CustomerContext'
 import SITE_PATH, { STAFF_PATH } from '@/app/site-path'
+import { useTrack } from '@/external/marketing-tracker/component/MarketingTrackerContext'
 import useTranslation from '@/localization/client/useTranslations'
 import { VIETNAMESE } from '@/localization/localize-config'
 import React, { useContext, useEffect, useRef, useState } from 'react'
@@ -132,6 +133,8 @@ export default function LoginContextProvider({
   const { loading: isLoadingSigninSSO, fetch: signinSSOFetch } =
     useFetchSigninWithSSO()
 
+  const maketingEventTracker = useTrack()
+
   const loginAction = ({
     id,
     password,
@@ -183,6 +186,7 @@ export default function LoginContextProvider({
           clearChangeGroupClassPassingTime()
           setAfterLoginFlag('student')
           setRedirect(destination ? destination : DESTINATION.STUDY)
+          maketingEventTracker.eventAction('Lead')
         } else {
           setAfterLoginFlag('staff')
           setRedirect(`${STAFF_PATH.MAIN}?open=1`)

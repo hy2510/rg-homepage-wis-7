@@ -2,6 +2,11 @@ import SITE_PATH from '@/app/site-path'
 
 const post = [
   {
+    id: '2024',
+    title: '2024 다독다독 기부캠페인',
+    url: `${SITE_PATH.HOME.EVENT_READING_CAMPAIN}/2024`,
+  },
+  {
     id: '2023',
     title: '2023 다독다독 기부캠페인',
     url: `${SITE_PATH.HOME.EVENT_READING_CAMPAIN}/2023`,

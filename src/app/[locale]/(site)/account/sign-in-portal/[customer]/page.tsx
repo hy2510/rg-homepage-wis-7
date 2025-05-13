@@ -8,7 +8,7 @@ import {
 import LoginContextProvider from '@/app/_context/LoginContext'
 import SITE_PATH from '@/app/site-path'
 import { useRouter } from 'next/navigation'
-import { use, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useFetchFindCustomer } from '@/client/store/customer/info/hook'
 import { useStudentInfoFlagLogin } from '@/client/store/student/info/selector'
 import { BackLink } from '@/ui/common/common-components'
@@ -17,8 +17,7 @@ import LoginFormAcademy from '../../sign-in/_component/LoginFormAcademy'
 import LoginFormPrivate from '../../sign-in/_component/LoginFormPrivate'
 import LoginFormSchool from '../../sign-in/_component/LoginFormSchool'
 
-export default function Page(props: { params: Promise<{ customer: string }> }) {
-  const params = use(props.params)
+export default function Page({ params }: { params: { customer: string } }) {
   const pCustomerId = params.customer
   const loginStatus = useStudentInfoFlagLogin()
 

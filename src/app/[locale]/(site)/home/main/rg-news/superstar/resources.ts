@@ -2,6 +2,16 @@ import SITE_PATH from '@/app/site-path'
 
 const post = [
   {
+    id: '2024',
+    title: '2024년 슈퍼스타 선발대회',
+    url: `${SITE_PATH.HOME.EVENT_SUPERSTAR}/2024`,
+  },
+  {
+    id: '2023',
+    title: '2023년 슈퍼스타 선발대회',
+    url: `${SITE_PATH.HOME.EVENT_SUPERSTAR}/2023`,
+  },
+  {
     id: '2022',
     title: '2022년 슈퍼스타 선발대회',
     url: `${SITE_PATH.HOME.EVENT_SUPERSTAR}/2022`,

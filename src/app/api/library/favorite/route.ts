@@ -15,6 +15,7 @@ type Status = 'Before' | 'Complete' | 'Fail' | 'All'
 export async function GET(request: NextRequest) {
   const authorizationWithCookie = await getAuthorizationWithCookie()
   const token = authorizationWithCookie.getActiveAccessToken()
+
   if (!token) {
     return RouteResponse.invalidAccessToken()
   }
@@ -34,6 +35,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   const authorizationWithCookie = await getAuthorizationWithCookie()
   const token = authorizationWithCookie.getActiveAccessToken()
+
   if (!token) {
     return RouteResponse.invalidAccessToken()
   }
@@ -60,6 +62,7 @@ export async function POST(request: NextRequest) {
 export async function DELETE(request: NextRequest) {
   const authorizationWithCookie = await getAuthorizationWithCookie()
   const token = authorizationWithCookie.getActiveAccessToken()
+
   if (!token) {
     return RouteResponse.invalidAccessToken()
   }

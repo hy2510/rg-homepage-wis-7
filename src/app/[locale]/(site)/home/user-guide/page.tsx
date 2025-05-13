@@ -8,13 +8,12 @@ export default function Page() {
 
   let src = '/src/images/@user-guide/rg_use_guide_indi.png'
   let height = 14182
-  if (target.academy || target.school) {
-    src = '/src/images/@user-guide/rg_use_guide_school.png'
-    height = 15243
-  }
   if (country.canada) {
     src = '/src/images/@user-guide/rg_use_guide_global.png'
     height = 15431
+  } else if (target.academy || target.school) {
+    src = '/src/images/@user-guide/rg_use_guide_school.png'
+    height = 15243
   }
 
   return (

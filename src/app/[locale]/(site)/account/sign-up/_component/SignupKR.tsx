@@ -3,6 +3,7 @@
 import { useSiteBlueprint } from '@/app/_context/CustomerContext'
 import { useLoginAction } from '@/app/_context/LoginContext'
 import SITE_PATH from '@/app/site-path'
+import { useTrack } from '@/external/marketing-tracker/component/MarketingTrackerContext'
 import useTranslation from '@/localization/client/useTranslations'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
@@ -42,6 +43,8 @@ type SignupParams = {
 export default function SignupKR({ style }: { style: Record<string, string> }) {
   // @language 'common'
   const { t } = useTranslation()
+
+  const maketingEventTracker = useTrack()
 
   const isLogin = useStudentIsLogin()
 
@@ -143,6 +146,7 @@ export default function SignupKR({ style }: { style: Record<string, string> }) {
       authCode,
       callback: (data) => {
         if (data.success) {
+          maketingEventTracker.eventAction('CompleteRegistration')
           setLoginAction(true)
           onLogin({
             id: signupParams.email,

@@ -8,6 +8,7 @@ import { useState } from 'react'
 import { SearchBookResponse } from '@/repository/client/library/search/search-book'
 import PaginationBar from '@/ui/common/PaginationBar'
 import { BackLink } from '@/ui/common/common-components'
+import VocaPrintOptions from '@/ui/modules/library-book-cover/VocaPrintOptions'
 import { BookCover } from '@/ui/modules/library-book-cover/book-cover'
 import LevelSelector from '@/ui/modules/library-explore-level-selector/level-selector'
 import { BookList } from '@/ui/modules/library-find-book-list/book-list'
@@ -227,6 +228,8 @@ export function SearchLevelBookListTemplate({
     targetStudentHistoryList,
     targetStudentHistoryId,
     onSelectStudentHistory,
+    isSettingVocabularyOption,
+    onVocabularyOption,
     onExportCancel,
   } = useExport()
 
@@ -324,6 +327,17 @@ export function SearchLevelBookListTemplate({
           defaultStudentHistoryId={targetStudentHistoryId}
           onCloseModal={onExportCancel}
           onSelectStudentHistoryId={onSelectStudentHistory}
+        />
+      )}
+      {isSettingVocabularyOption && (
+        <VocaPrintOptions
+          visibleType="modal"
+          onClick={(option) => {
+            onVocabularyOption(option)
+          }}
+          onCancel={() => {
+            onExportCancel()
+          }}
         />
       )}
     </main>
@@ -505,6 +519,8 @@ export function SearchThemeSeriesBookListTemplate({
     targetStudentHistoryList,
     targetStudentHistoryId,
     onSelectStudentHistory,
+    isSettingVocabularyOption,
+    onVocabularyOption,
     onExportCancel,
   } = useExport()
 
@@ -594,6 +610,17 @@ export function SearchThemeSeriesBookListTemplate({
           defaultStudentHistoryId={targetStudentHistoryId}
           onCloseModal={onExportCancel}
           onSelectStudentHistoryId={onSelectStudentHistory}
+        />
+      )}
+      {isSettingVocabularyOption && (
+        <VocaPrintOptions
+          visibleType="modal"
+          onClick={(option) => {
+            onVocabularyOption(option)
+          }}
+          onCancel={() => {
+            onExportCancel()
+          }}
         />
       )}
     </main>

@@ -3,7 +3,7 @@ import AppLoader from '@/app/_app/AppLoader'
 import LanguagePackContextProvider from '@/localization/client/LanguagePackContext'
 import { getLanguageResources } from '@/localization/server/i18next-server'
 import { Viewport } from 'next'
-import PreloadScript from '../_app/PreloadScript'
+import { BodyPreloadScript, HeadPreloadScript } from '../_app/PreloadScript'
 
 export const metadata = {
   'apple-mobile-web-app-capable': 'yes',
@@ -17,26 +17,24 @@ export const viewport: Viewport = {
   viewportFit: 'cover',
 }
 
-function generateStaticParams() {
-  return [{ locale: 'ko' }, { locale: 'en' }, { locale: 'vi' }]
-}
-
-export default async function LanguageLayout(props: {
-  params: Promise<{
+export default async function LanguageLayout({
+  params,
+  children,
+}: {
+  params: {
     locale: string
-  }>
+  }
   children?: React.ReactNode
 }) {
-  const params = await props.params
-
-  const { children } = props
-
   const locale = params.locale
   const resCommon = await getLanguageResources(locale)
 
   return (
     <html lang={locale}>
-      <link rel="manifest" href="/manifest.json" />
+      <head>
+        <HeadPreloadScript />
+        <link rel="manifest" href="/manifest.json" />
+      </head>
       <body>
         <link
           href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -48,7 +46,7 @@ export default async function LanguageLayout(props: {
           res={JSON.stringify(resCommon)}>
           <AppLoader>{children}</AppLoader>
         </LanguagePackContextProvider>
-        <PreloadScript />
+        <BodyPreloadScript />
         {/* <SiteMapLinkMenu /> */}
       </body>
     </html>

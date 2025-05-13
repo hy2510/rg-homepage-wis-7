@@ -36,20 +36,20 @@ export default function localizationMiddleware(
       findLocale = savedLng
     }
     if (!findLocale) {
-      //FIXME : vn.readinggate.com 인 경우, vn 고정
-      // www.readinggate.com 인 경우, ko 고정
-      if (
-        host === 'www.readinggate.com' ||
-        host === 'apps.readinggate.com' ||
-        host === 'dev.readinggate.com:53000'
-      ) {
+      const localeFixKoList = process.env.LANG_KO_FIX_DOMAIN?.split('|') || []
+      const localeFixVnList = process.env.LANG_VN_FIX_DOMAIN?.split('|') || []
+
+      const checkLocaleHost = (item: string) => {
+        const findIndex = host.indexOf(item)
+        return findIndex >= 0 && findIndex < 9
+      }
+
+      const isKoFixLocale = localeFixKoList.some(checkLocaleHost)
+      const isVnFixLocale = localeFixVnList.some(checkLocaleHost)
+
+      if (isKoFixLocale) {
         findLocale = KOREAN
-      } else if (
-        host === 'vn.readinggate.com' ||
-        host === 'rgvn.readinggate.com' ||
-        host === 'readingq.readinggate.com' ||
-        host === 'readingq2.readinggate.com'
-      ) {
+      } else if (isVnFixLocale) {
         findLocale = VIETNAMESE
       } else {
         const sysLng = findLocaleByAcceptLanguage(

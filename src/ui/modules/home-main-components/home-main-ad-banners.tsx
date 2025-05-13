@@ -1,5 +1,6 @@
 import SITE_PATH from '@/app/site-path'
 import useTranslation from '@/localization/client/useTranslations'
+import NumberUtils from '@/util/number-utils'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -233,6 +234,7 @@ export const HomeBanner = ({
 
 export const HomeBannerRgShop = () => {
   const style = useStyle(STYLE_ID)
+  // @Language 'common'
   const { t } = useTranslation()
 
   return (
@@ -318,6 +320,7 @@ export const HomeBannerRgMembership = ({
   isEnabledTicket?: boolean
 }) => {
   const style = useStyle(STYLE_ID)
+  // @Language 'common'
   const { t } = useTranslation()
   const router = useRouter()
   const isMobile = useScreenMode() === 'mobile'
@@ -432,6 +435,7 @@ export const HomeBannerRgMembershipVn = ({
   isEnabledTicket?: boolean
 }) => {
   const style = useStyle(STYLE_ID)
+  // @Language 'common'
   const { t } = useTranslation()
   const router = useRouter()
   const isMobile = useScreenMode() === 'mobile'
@@ -539,6 +543,7 @@ export const HomeBannerRgMembershipVn = ({
 export const HomeCustomerCenter = () => {
   const style = useStyle(STYLE_ID)
   const isMobile = useScreenMode() === 'mobile'
+  // @Language 'common'
   const { t } = useTranslation()
 
   return (
@@ -1053,6 +1058,7 @@ export const HomeCustomerCenterGlobal = () => {
 
 export const HomePartnership = () => {
   const style = useStyle(STYLE_ID)
+  // @Language 'common'
   const { t } = useTranslation()
 
   return (
@@ -1139,16 +1145,19 @@ export const HomeBannerChanner = ({
 
 export const HomeBannerDonation = ({
   link,
-  bgImage,
+  donation,
 }: {
   link: string
-  bgImage: string
+  donation: number
 }) => {
   const style = useStyle(STYLE_ID)
+  // @Language 'common'
   const { t } = useTranslation()
 
   return (
-    <AdBannerType4 bgColor="#C92343" bgImage={bgImage}>
+    <AdBannerType4
+      bgColor="#C92343"
+      bgImage="/src/sample-images/@home/cards/donation_campaign.png">
       <div className={`${style.home_banner} ${style.txt_white}`}>
         <div>
           <div className={`${style.title} ${style.mg_bottom_none}`}>
@@ -1162,6 +1171,11 @@ export const HomeBannerDonation = ({
               {t('t914')}
             </div>
           </Link>
+          <div className={`${style.donation}`}>
+            <span className={`${style.unit}`}>{'₩'}</span>
+            <span
+              className={`${style.value}`}>{`${NumberUtils.toBigNumberString(donation * 1)}`}</span>
+          </div>
         </div>
       </div>
     </AdBannerType4>

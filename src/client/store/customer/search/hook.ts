@@ -79,16 +79,31 @@ export function useOnLoadSearchPrivateCustomer() {
       )
 
       if (res.isSuccess && res.payload) {
-        const customers = [...res.payload].reverse()
-        for (let i = 0; i < res.payload.length; i++) {
-          const c = res.payload[i]
-          if (c.countryCode === 'KR') {
-            const newCustomer = { ...c, name: 'Other' }
-            customers.push(newCustomer)
-            break
+        const COUNTRY_ORDER = ['KR', 'VN']
+
+        const orderCustomers: SearchCustomerResponse = []
+        res.payload.forEach((customer) => {
+          const isIncludeCountry = COUNTRY_ORDER.includes(customer.countryCode)
+          if (!isIncludeCountry) {
+            orderCustomers.push(customer)
+          }
+        })
+        COUNTRY_ORDER.reverse().forEach((code) => {
+          const items = res.payload?.find((item) => item.countryCode === code)
+          if (items) {
+            orderCustomers.unshift(items)
+          }
+        })
+        if (orderCustomers.length > 0) {
+          const korCountry = orderCustomers.find(
+            (item) => item.countryCode === 'KR',
+          )
+          if (korCountry) {
+            const outerCountry = { ...korCountry, name: 'Other' }
+            orderCustomers.push(outerCountry)
           }
         }
-        setPayload(customers)
+        setPayload(orderCustomers)
       } else {
         setError(res.error)
       }

@@ -16,13 +16,17 @@ async function noticeMainList(customer: string) {
 }
 
 async function noticeList(
-  customer: string,
+  token: {
+    token?: string
+    customer?: string
+  },
   input: {
     page: string
   },
 ) {
   const request = makeRequest({
-    customer,
+    token: token.token,
+    customer: token.customer,
     path: getPath('board/notice'),
     option: {
       queryString: {
@@ -33,10 +37,100 @@ async function noticeList(
   return await execute(request)
 }
 
-async function noticeDetail(customer: string, input: { id: string }) {
+async function noticeDetail(
+  token: {
+    token?: string
+    customer?: string
+  },
+  input: { id: string },
+) {
   const request = makeRequest({
-    customer,
+    token: token.token,
+    customer: token.customer,
     path: getPath('board/notice' + `/${input.id}`),
+  })
+  return await execute(request)
+}
+
+async function noticePost(
+  token: string,
+  input: {
+    title: string
+    content: string
+    attachFileName?: string
+    attachFileOriginName?: string
+    imageFileName?: string
+    imageFileOriginName?: string
+  },
+) {
+  const request = makeRequest({
+    token,
+    path: getPath(`board/notice`),
+    option: {
+      method: 'post',
+      body: {
+        title: input.title,
+        content: input.content,
+        attachFileName: input.attachFileName,
+        attachFileOriginName: input.attachFileOriginName,
+        imageFileName: input.imageFileName,
+        imageFileOriginName: input.imageFileOriginName,
+      },
+    },
+  })
+  return await execute(request)
+}
+
+async function noticeModify(
+  token: string,
+  input: {
+    notifyId: string
+    title: string
+    content: string
+    attachFileName?: string
+    attachFileOriginName?: string
+    imageFileName?: string
+    imageFileOriginName?: string
+    registStaffId: string
+  },
+) {
+  const request = makeRequest({
+    token,
+    path: getPath(`board/notice/modify`),
+    option: {
+      method: 'post',
+      body: {
+        notifyId: input.notifyId,
+        title: input.title,
+        content: input.content,
+        attachFileName: input.attachFileName,
+        attachFileOriginName: input.attachFileOriginName,
+        imageFileName: input.imageFileName,
+        imageFileOriginName: input.imageFileOriginName,
+        registStaffId: input.registStaffId,
+      },
+    },
+  })
+  return await execute(request)
+}
+
+async function noticeDelete(
+  token: string,
+  input: {
+    notifyId: string
+    registStaffId: string
+  },
+) {
+  const request = makeRequest({
+    token,
+    path: getPath(`board/notice`),
+    option: {
+      method: 'delete',
+      queryString: {
+        notifyId: input.notifyId,
+        registStaffId: input.registStaffId,
+      },
+    },
   })
   return await execute(request)
 }
@@ -62,9 +156,16 @@ async function statisticRead() {
   return await execute(request, { next: { revalidate: 3600 } })
 }
 
-async function galleryList(customer: string, input: { page: string }) {
+async function galleryList(
+  token: {
+    token?: string
+    customer?: string
+  },
+  input: { page: string },
+) {
   const request = makeRequest({
-    customer,
+    token: token.token,
+    customer: token.customer,
     path: getPath('board/gallery'),
     option: {
       queryString: {},
@@ -73,10 +174,92 @@ async function galleryList(customer: string, input: { page: string }) {
   return await execute(request)
 }
 
-async function galleryDetail(customer: string, input: { id: string }) {
+async function galleryDetail(
+  token: {
+    token?: string
+    customer?: string
+  },
+  input: { id: string },
+) {
   const request = makeRequest({
-    customer,
+    token: token.token,
+    customer: token.customer,
     path: getPath('board/gallery' + `/${input.id}`),
+  })
+  return await execute(request)
+}
+
+async function galleryPost(
+  token: string,
+  input: {
+    title: string
+    content: string
+    imageFileName: string
+    imageFileOriginName: string
+  },
+) {
+  const request = makeRequest({
+    token,
+    path: getPath(`board/gallery`),
+    option: {
+      method: 'post',
+      body: {
+        title: input.title,
+        content: input.content,
+        imageFileName: input.imageFileName,
+        imageFileOriginName: input.imageFileOriginName,
+      },
+    },
+  })
+  return await execute(request)
+}
+
+async function galleryModify(
+  token: string,
+  input: {
+    boardId: string
+    title: string
+    content: string
+    imageFileName?: string
+    imageFileOriginName?: string
+    registStaffId: string
+  },
+) {
+  const request = makeRequest({
+    token,
+    path: getPath(`board/gallery/modify`),
+    option: {
+      method: 'post',
+      body: {
+        boardId: input.boardId,
+        title: input.title,
+        content: input.content,
+        imageFileName: input.imageFileName,
+        imageFileOriginName: input.imageFileOriginName,
+        registStaffId: input.registStaffId,
+      },
+    },
+  })
+  return await execute(request)
+}
+
+async function galleryDelete(
+  token: string,
+  input: {
+    boardId: string
+    registStaffId: string
+  },
+) {
+  const request = makeRequest({
+    token,
+    path: getPath(`board/gallery`),
+    option: {
+      method: 'delete',
+      queryString: {
+        boardId: input.boardId,
+        registStaffId: input.registStaffId,
+      },
+    },
   })
   return await execute(request)
 }
@@ -133,8 +316,14 @@ const Home = {
   slidingBanner,
   noticeList,
   noticeDetail,
+  noticePost,
+  noticeModify,
+  noticeDelete,
   galleryList,
   galleryDetail,
+  galleryPost,
+  galleryModify,
+  galleryDelete,
   customerReviewList,
   customerReviewDetail,
   saveMarketingReferer,

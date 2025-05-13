@@ -16,6 +16,7 @@ const IOS_INAPP_USE_SEND_BOX = process.env.IOS_INAPP_MODE_SENDBOX === 'Y'
 export async function POST(request: NextRequest) {
   const authorizationWithCookie = await getAuthorizationWithCookie()
   const token = authorizationWithCookie.getActiveAccessToken()
+
   if (!token) {
     return RouteResponse.invalidAccessToken()
   }

@@ -301,7 +301,7 @@ export const ReviewAssessmentReport = ({
                         alert(studyEndMessage)
                       }
                     }}
-                    onClickDelete={() => {
+                    onCancel={() => {
                       setViewVocaPrintOptions(false)
                     }}
                   />

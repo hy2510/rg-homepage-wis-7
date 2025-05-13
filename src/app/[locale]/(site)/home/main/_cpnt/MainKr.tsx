@@ -1,6 +1,5 @@
 'use client'
 
-import { useApplicationType } from '@/app/_context/AppContext'
 import {
   useCustomerInfo,
   useSiteBlueprint,
@@ -30,6 +29,7 @@ import {
   HomeBannerRgShop,
   HomeCustomerCenter,
   HomePartnership,
+  NoticeBanner,
 } from '@/ui/modules/home-main-components/home-main-ad-banners'
 import LogIn from '@/ui/modules/home-main-components/home-main-log-in'
 import MainBanner from '@/ui/modules/home-main-components/home-main-main-banner'
@@ -65,7 +65,10 @@ export default function MainKr() {
 
 function MainComponent({ platform }: { platform: string }) {
   const style = useStyle(STYLE_ID)
+
+  // @Language 'common'
   const { t } = useTranslation()
+
   const router = useRouter()
   const { main, target, country } = useSiteBlueprint()
   const { payload: mainData } = useOnLoadMain(target, platform, country)
@@ -84,7 +87,14 @@ function MainComponent({ platform }: { platform: string }) {
   }
   const isEnabledTicket =
     platform.toLowerCase() !== 'android' && platform.toLowerCase() !== 'ios'
-  const useapp = useApplicationType()
+
+  // 띠배너 노출 기간 ~ 3월 8일 토요일 06시 00분
+  const bannerTime = Date.now()
+  const bannerStartDate = new Date(2025, 3 - 1, 5, 8, 0, 0)
+  const bannerEndDate = new Date(2025, 3 - 1, 8, 6, 0, 0)
+  const isShowBanner =
+    bannerTime - bannerStartDate.getTime() >= 0 &&
+    bannerEndDate.getTime() - bannerTime >= 0
 
   if (!mainData) {
     return <div></div>
@@ -92,6 +102,15 @@ function MainComponent({ platform }: { platform: string }) {
   return (
     <>
       {/* 띠 베너 */}
+      {isShowBanner && (
+        <NoticeBanner bgColor="#FF1B45">
+          <div style={{ color: 'white' }}>
+            서버 점검에 따른 학습 및 홈페이지 이용 제한 안내
+            <br />
+            3/8(토) 01:00 ~ 3/8(토)06:00
+          </div>
+        </NoticeBanner>
+      )}
       <main className={`${style.home_news_kr} container`}>
         <div className={style.row_1}>
           {mainData.slide.length > 0 && <MainBanner banner={mainData.slide} />}
@@ -176,9 +195,9 @@ function MainComponent({ platform }: { platform: string }) {
             <HomeBanner
               title="RG 뉴스레터"
               txtColor="#fff"
-              sub="2024년 11월"
+              sub="2025년 3월"
               subColor="#fff"
-              comment="하이도도 앱 어워드 수상, 공식카페 리드얼라우드 18기 진행 ..."
+              comment="2025 상반기 영어독서왕 선발대회, 티타늄 등급 상패 증정식 등..."
               commentColor="#fff"
               bgColor="#038DF1"
               bgImage="/src/images/@home/cards/news_letter.svg"
@@ -197,8 +216,8 @@ function MainComponent({ platform }: { platform: string }) {
             />
           </div>
           <AdBannerType3
-            bgImage="/src/sample-images/@home/cards/king_of_reading_202402.svg"
-            href={'/home/main/rg-news/challenge/202402'}
+            bgImage="/src/sample-images/@home/cards/king_of_reading.svg"
+            href={'/home/main/rg-news-post/1665'}
           />
         </div>
         <div className={style.row_5}>
@@ -250,15 +269,15 @@ function MainComponent({ platform }: { platform: string }) {
           />
           <HomeBannerChanner
             title1=""
-            title2="RG Story"
-            linkTxt1={t('t911')}
-            link1="https://www.youtube.com/playlist?list=PLbIV2Wes7jczKZkbqMaIjHgSHwDLEuaFO"
-            bgColor="#222B52"
-            bgImage="/src/images/@home/channer/channer_youtube.svg"
+            title2="RG Instagram"
+            linkTxt1={t('t915')}
+            link1="https://www.instagram.com/readinggate_official/"
+            bgColor="#BF2024"
+            bgImage="/src/images/@home/channer/channer_insta.svg"
           />
           <HomeBannerDonation
-            link="https://blog.naver.com/readinggate_official/223396684842"
-            bgImage="/src/sample-images/@home/cards/donation_campaign.png"
+            link="https://blog.naver.com/readinggate_official/223785592097"
+            donation={mainData.campaign}
           />
         </div>
       </main>

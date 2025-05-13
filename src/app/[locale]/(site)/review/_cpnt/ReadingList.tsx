@@ -12,6 +12,7 @@ import { useState } from 'react'
 import { useHistoryStudy } from '@/client/store/history/study/selector'
 import { EmptyMessage, PillItem, Pills } from '@/ui/common/common-components'
 import { useStyle } from '@/ui/context/StyleContext'
+import VocaPrintOptions from '@/ui/modules/library-book-cover/VocaPrintOptions'
 import { ReviewAssessmentReport } from '@/ui/modules/review-assessment-report/ReviewAssessmentReport'
 import {
   DetailedReportItem,
@@ -69,6 +70,8 @@ export default function ReadingList({
     targetStudentHistoryList,
     targetStudentHistoryId,
     onSelectStudentHistory,
+    isSettingVocabularyOption,
+    onVocabularyOption,
     onExportCancel,
   } = useExport()
 
@@ -110,6 +113,41 @@ export default function ReadingList({
   return (
     <>
       <div>
+        <div
+          onClick={() => {
+            setSelectMode(!isSelectMode)
+          }}>
+          {isDevAction && (isSelectMode ? t('t204') : t('t372'))}
+          {isSelectMode && (
+            <div>
+              {supportExportAction.map((item) => {
+                return (
+                  <button
+                    key={item.action}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      setExportSelected(item.action)
+                    }}>
+                    {`[${exportSelected === item.action ? 'O' : '_'}]`}
+                    {item.label}
+                  </button>
+                )
+              })}
+              <div
+                onClick={(e) => {
+                  e.stopPropagation()
+                  if (exportSelected) {
+                    onExportAction && onExportAction(exportSelected)
+                  }
+                }}>
+                DO Action
+              </div>
+            </div>
+          )}
+          {isDevAction && downloadExcelUrl && (
+            <div onClick={onBookListExcelDownload}>{t('t765')}</div>
+          )}
+        </div>
         <div className={style.study_days_count}>
           <div>
             {/* 학습일수 */} {t('t762')} : {passedDays}
@@ -236,6 +274,17 @@ export default function ReadingList({
           defaultStudentHistoryId={targetStudentHistoryId}
           onCloseModal={onExportCancel}
           onSelectStudentHistoryId={onSelectStudentHistory}
+        />
+      )}
+      {isSettingVocabularyOption && (
+        <VocaPrintOptions
+          visibleType="modal"
+          onClick={(option) => {
+            onVocabularyOption(option)
+          }}
+          onCancel={() => {
+            onExportCancel()
+          }}
         />
       )}
       {/* <Pagination>

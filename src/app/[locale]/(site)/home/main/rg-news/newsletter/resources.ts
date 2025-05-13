@@ -2,6 +2,26 @@ import SITE_PATH from '@/app/site-path'
 
 const post = [
   {
+    id: 'newsletter_vol27',
+    title: '2025년 3월 뉴스레터',
+    url: `${SITE_PATH.HOME.NEWS_LETTER}/newsletter_vol27`,
+  },
+  {
+    id: 'newsletter_vol26',
+    title: '2025년 2월 뉴스레터',
+    url: `${SITE_PATH.HOME.NEWS_LETTER}/newsletter_vol26`,
+  },
+  {
+    id: 'newsletter_vol25',
+    title: '2025년 1월 뉴스레터',
+    url: `${SITE_PATH.HOME.NEWS_LETTER}/newsletter_vol25`,
+  },
+  {
+    id: 'newsletter_vol24',
+    title: '2024년 12월 뉴스레터',
+    url: `${SITE_PATH.HOME.NEWS_LETTER}/newsletter_vol24`,
+  },
+  {
     id: 'newsletter_vol23',
     title: '2024년 11월 뉴스레터',
     url: `${SITE_PATH.HOME.NEWS_LETTER}/newsletter_vol23`,

@@ -15,6 +15,7 @@ import PaginationBar from '@/ui/common/PaginationBar'
 import { BackLink, Dropdown, DropdownItem } from '@/ui/common/common-components'
 import { useStyle } from '@/ui/context/StyleContext'
 import LoadingScreen from '@/ui/modules/LoadingScreen'
+import VocaPrintOptions from '@/ui/modules/library-book-cover/VocaPrintOptions'
 import { BookCover } from '@/ui/modules/library-book-cover/book-cover'
 import { BookList } from '@/ui/modules/library-find-book-list/book-list'
 import StudyLevelBox from '@/ui/modules/library-find-study-level-selector/StudyLevelBox'
@@ -172,6 +173,8 @@ function EBookLayout({
     targetStudentHistoryList,
     targetStudentHistoryId,
     onSelectStudentHistory,
+    isSettingVocabularyOption,
+    onVocabularyOption,
     onExportCancel,
   } = useExport()
 
@@ -271,6 +274,17 @@ function EBookLayout({
           defaultStudentHistoryId={targetStudentHistoryId}
           onCloseModal={onExportCancel}
           onSelectStudentHistoryId={onSelectStudentHistory}
+        />
+      )}
+      {isSettingVocabularyOption && (
+        <VocaPrintOptions
+          visibleType="modal"
+          onClick={(option) => {
+            onVocabularyOption(option)
+          }}
+          onCancel={() => {
+            onExportCancel()
+          }}
         />
       )}
     </main>

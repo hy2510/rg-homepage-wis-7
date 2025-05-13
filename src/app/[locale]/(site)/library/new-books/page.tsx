@@ -9,6 +9,7 @@ import { useLibraryNewBook } from '@/client/store/library/new-book/selector'
 import { BackLink } from '@/ui/common/common-components'
 import { useStyle } from '@/ui/context/StyleContext'
 import LoadingScreen from '@/ui/modules/LoadingScreen'
+import VocaPrintOptions from '@/ui/modules/library-book-cover/VocaPrintOptions'
 import { BookCover } from '@/ui/modules/library-book-cover/book-cover'
 import {
   ExportItem,
@@ -60,6 +61,8 @@ function NewBookLayout({ keyword }: { keyword: string }) {
     targetStudentHistoryList,
     targetStudentHistoryId,
     onSelectStudentHistory,
+    isSettingVocabularyOption,
+    onVocabularyOption,
     onExportCancel,
   } = useExport()
 
@@ -199,6 +202,17 @@ function NewBookLayout({ keyword }: { keyword: string }) {
           defaultStudentHistoryId={targetStudentHistoryId}
           onCloseModal={onExportCancel}
           onSelectStudentHistoryId={onSelectStudentHistory}
+        />
+      )}
+      {isSettingVocabularyOption && (
+        <VocaPrintOptions
+          visibleType="modal"
+          onClick={(option) => {
+            onVocabularyOption(option)
+          }}
+          onCancel={() => {
+            onExportCancel()
+          }}
         />
       )}
     </main>

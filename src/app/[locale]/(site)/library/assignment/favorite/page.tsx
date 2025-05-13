@@ -12,6 +12,7 @@ import PaginationBar from '@/ui/common/PaginationBar'
 import { AlertBar, Dropdown, DropdownItem } from '@/ui/common/common-components'
 import { useStyle } from '@/ui/context/StyleContext'
 import LoadingScreen from '@/ui/modules/LoadingScreen'
+import VocaPrintOptions from '@/ui/modules/library-book-cover/VocaPrintOptions'
 import { BookCover } from '@/ui/modules/library-book-cover/book-cover'
 import {
   ExportItem,
@@ -93,6 +94,8 @@ function Favorite() {
     targetStudentHistoryList,
     targetStudentHistoryId,
     onSelectStudentHistory,
+    isSettingVocabularyOption,
+    onVocabularyOption,
     onExportCancel,
   } = useExport()
 
@@ -234,7 +237,9 @@ function Favorite() {
             count={selectedItemCount}
             onExportClick={() => {
               if (exportSelected) {
-                onExportAction && onExportAction(exportSelected)
+                if (onExportAction) {
+                  onExportAction(exportSelected)
+                }
               }
             }}>
             {supportExportAction &&
@@ -269,9 +274,22 @@ function Favorite() {
             buttonName={t('t385')}
             onExportClick={() => {
               if (selectedItemCount > 0) {
-                onExportAction && onExportAction('delete-favorite')
+                if (onExportAction) {
+                  onExportAction('delete-favorite')
+                }
               }
             }}></ExportModePanel>
+        )}
+        {isSettingVocabularyOption && (
+          <VocaPrintOptions
+            visibleType="modal"
+            onClick={(option) => {
+              onVocabularyOption(option)
+            }}
+            onCancel={() => {
+              onExportCancel()
+            }}
+          />
         )}
       </main>
     </>

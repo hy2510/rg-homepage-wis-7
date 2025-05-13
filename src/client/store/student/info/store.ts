@@ -98,6 +98,7 @@ export const createSliceInfoState: SliceStoreCreator<InfoState> = (set) => ({
           state.student.info.payload = newStudent()
           state.student.info.login = 'off'
           state.student.info.staff = 'off'
+          state.student.info.studyState.value = undefined
         }),
       updateStudentName: (name: string) =>
         set((state) => {

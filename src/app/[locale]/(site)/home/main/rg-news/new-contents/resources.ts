@@ -2,6 +2,26 @@ import SITE_PATH from '@/app/site-path'
 
 const post = [
   {
+    id: '202504',
+    title: '2025년 4월 신규 콘텐츠',
+    url: `${SITE_PATH.HOME.NEW_CONTENTS}/202504`,
+  },
+  {
+    id: '202503',
+    title: '2025년 3월 신규 콘텐츠',
+    url: `${SITE_PATH.HOME.NEW_CONTENTS}/202503`,
+  },
+  {
+    id: '202502',
+    title: '2025년 2월 신규 콘텐츠',
+    url: `${SITE_PATH.HOME.NEW_CONTENTS}/202502`,
+  },
+  {
+    id: '202501',
+    title: '2025년 1월 신규 콘텐츠',
+    url: `${SITE_PATH.HOME.NEW_CONTENTS}/202501`,
+  },
+  {
     id: '202412',
     title: '2024년 12월 신규 콘텐츠',
     url: `${SITE_PATH.HOME.NEW_CONTENTS}/202412`,

@@ -13,7 +13,6 @@ const STYLE_ID = 'challenge_board'
 
 // 영어독서왕 스코어보드
 export function ChallengeBoard({
-  symbolImgSrc,
   challengeTitle,
   startDate,
   endDate,
@@ -27,7 +26,6 @@ export function ChallengeBoard({
   isTodayStudy,
   onPrizeChange,
 }: {
-  symbolImgSrc: string
   challengeTitle: string
   startDate: string
   endDate: string
@@ -45,6 +43,8 @@ export function ChallengeBoard({
   // @Language 'common'
   const { t } = useTranslation()
 
+  const symbolImgSrc =
+    '/src/images/@challenge-board/challenge_symbol_edmond.png'
   let goalName = ''
   let medalImages = '/src/images/@empty-message/empty-award.svg'
   prizeList.forEach((item, idx) => {
