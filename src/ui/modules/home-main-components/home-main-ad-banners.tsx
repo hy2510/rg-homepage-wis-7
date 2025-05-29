@@ -1064,15 +1064,33 @@ export const HomePartnership = () => {
   return (
     <div className={style.home_partnership}>
       <div className={style.row}>
-        <div className={style.title}>{t('t905')}</div>
+        <div className={style.title} style={{ marginTop: '0' }}>
+          {t('t905')}
+        </div>
         <Link
           href={'https://www.woodo.kr/readinggate'}
           target="_blank"
           style={{ height: '100%' }}>
           <div className={`${style.partner_banner} ${style.woodo}`}></div>
         </Link>
+        <div className={style.title}>{t('t906')}</div>
+        <Link
+          href={'https://www.millie.co.kr/'}
+          target="_blank"
+          style={{ height: '100%' }}>
+          <div className={`${style.partner_banner} ${style.millie}`}></div>
+        </Link>
+        <div className={style.title}>차이홍 중국어 체험 제휴</div>
+        <div className={style.partner_banner_group}>
+          <Link
+            href={'https://www.caihong.co.kr/'}
+            target="_blank"
+            style={{ height: '100%' }}>
+            <div className={`${style.partner_banner} ${style.caihong}`}></div>
+          </Link>
+        </div>
       </div>
-      <div className={style.row}>
+      {/* <div className={style.row}>
         <div className={style.title}>{t('t906')}</div>
         <div className={style.partner_banner_group}>
           <Link
@@ -1081,11 +1099,14 @@ export const HomePartnership = () => {
             style={{ height: '100%' }}>
             <div className={`${style.partner_banner} ${style.millie}`}></div>
           </Link>
-          {/* <Link href={'https://www.storytel.com/kr'} target='_blank' style={{height: '100%'}}>
+          <Link
+            href={'https://www.storytel.com/kr'}
+            target="_blank"
+            style={{ height: '100%' }}>
             <div className={`${style.partner_banner} ${style.storytel}`}></div>
-          </Link> */}
+          </Link>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
