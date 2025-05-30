@@ -1083,7 +1083,7 @@ export const HomePartnership = () => {
         <div className={style.title}>차이홍 중국어 체험 제휴</div>
         <div className={style.partner_banner_group}>
           <Link
-            href={'https://www.caihong.co.kr/'}
+            href={'https://www.caihong.co.kr/info/child'}
             target="_blank"
             style={{ height: '100%' }}>
             <div className={`${style.partner_banner} ${style.caihong}`}></div>
