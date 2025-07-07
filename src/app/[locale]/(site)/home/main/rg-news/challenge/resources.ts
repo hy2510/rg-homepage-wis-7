@@ -2,6 +2,11 @@ import SITE_PATH from '@/app/site-path'
 
 const post = [
   {
+    id: '202501',
+    title: '2025년 상반기 영어독서왕',
+    url: `${SITE_PATH.HOME.EVENT_CHALLENGE}/202501`,
+  },
+  {
     id: '202402',
     title: '2024년 하반기 영어독서왕',
     url: `${SITE_PATH.HOME.EVENT_CHALLENGE}/202402`,

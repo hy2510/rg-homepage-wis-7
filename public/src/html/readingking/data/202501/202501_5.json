@@ -1,0 +1,482 @@
+[
+  {
+    "customers": "양주상수초등학교",
+    "point_avg": 631.1,
+    "point_total": "56,796.35",
+    "books": "14,467"
+  },
+  {
+    "customers": "시흥소명학교",
+    "point_avg": 569.6,
+    "point_total": "5,126.00",
+    "books": 441
+  },
+  {
+    "customers": "가나안스쿨",
+    "point_avg": 559.3,
+    "point_total": "48,100.45",
+    "books": "13,610"
+  },
+  {
+    "customers": "거창고제초등학교",
+    "point_avg": 537.2,
+    "point_total": "6,446.60",
+    "books": "1,570"
+  },
+  {
+    "customers": "광운초등학교",
+    "point_avg": 511.2,
+    "point_total": "289,358.35",
+    "books": "53,842"
+  },
+  {
+    "customers": "성신초등학교",
+    "point_avg": 508.8,
+    "point_total": "254,920.60",
+    "books": "58,098"
+  },
+  {
+    "customers": "이음학교",
+    "point_avg": 475.3,
+    "point_total": "38,024.55",
+    "books": "9,649"
+  },
+  {
+    "customers": "소명나무학교",
+    "point_avg": 466.4,
+    "point_total": "12,592.45",
+    "books": "2,074"
+  },
+  {
+    "customers": "김포개곡초등학교",
+    "point_avg": 448.1,
+    "point_total": "39,882.35",
+    "books": "8,137"
+  },
+  {
+    "customers": "광주산아래학교",
+    "point_avg": 448.1,
+    "point_total": "24,643.95",
+    "books": "5,023"
+  },
+  {
+    "customers": "월광기독초등학교",
+    "point_avg": 387.3,
+    "point_total": "49,966.55",
+    "books": "10,784"
+  },
+  {
+    "customers": "서해삼육초등학교",
+    "point_avg": 387,
+    "point_total": "70,040.95",
+    "books": "14,436"
+  },
+  {
+    "customers": "성남서현초등학교",
+    "point_avg": 382,
+    "point_total": "347,989.00",
+    "books": "64,659"
+  },
+  {
+    "customers": "광주송원초등학교",
+    "point_avg": 380.4,
+    "point_total": "207,337.35",
+    "books": "40,948"
+  },
+  {
+    "customers": "동북초등학교",
+    "point_avg": 361.1,
+    "point_total": "276,585.40",
+    "books": "65,183"
+  },
+  {
+    "customers": "카라크리스천스쿨",
+    "point_avg": 341.7,
+    "point_total": "34,169.20",
+    "books": "8,511"
+  },
+  {
+    "customers": "세품기독학교",
+    "point_avg": 338.2,
+    "point_total": "44,983.20",
+    "books": "11,836"
+  },
+  {
+    "customers": "인천상아초등학교",
+    "point_avg": 336.9,
+    "point_total": "41,774.90",
+    "books": "8,954"
+  },
+  {
+    "customers": "대광초등학교",
+    "point_avg": 319.2,
+    "point_total": "161,169.90",
+    "books": "29,518"
+  },
+  {
+    "customers": "성남백현초등학교",
+    "point_avg": 305.5,
+    "point_total": "28,712.85",
+    "books": "6,693"
+  },
+  {
+    "customers": "심석초등학교",
+    "point_avg": 279.8,
+    "point_total": "145,238.10",
+    "books": "31,630"
+  },
+  {
+    "customers": "성남검단초등학교",
+    "point_avg": 275.3,
+    "point_total": "120,306.90",
+    "books": "33,763"
+  },
+  {
+    "customers": "용인신월초등학교",
+    "point_avg": 274.2,
+    "point_total": "53,732.45",
+    "books": "10,173"
+  },
+  {
+    "customers": "충암초등학교",
+    "point_avg": 272.6,
+    "point_total": "188,330.25",
+    "books": "36,034"
+  },
+  {
+    "customers": "영월신천초등학교",
+    "point_avg": 272.5,
+    "point_total": "15,531.45",
+    "books": "3,404"
+  },
+  {
+    "customers": "다니엘열방학교",
+    "point_avg": 268.8,
+    "point_total": "14,782.30",
+    "books": "3,887"
+  },
+  {
+    "customers": "수원명인초등학교",
+    "point_avg": 261.6,
+    "point_total": "106,993.45",
+    "books": "29,146"
+  },
+  {
+    "customers": "안양희성초등학교",
+    "point_avg": 255.3,
+    "point_total": "47,995.00",
+    "books": "11,960"
+  },
+  {
+    "customers": "부산좌동초등학교",
+    "point_avg": 251.4,
+    "point_total": "101,299.70",
+    "books": "14,463"
+  },
+  {
+    "customers": "공주구산초등학교",
+    "point_avg": 247.6,
+    "point_total": "9,162.40",
+    "books": "1,498"
+  },
+  {
+    "customers": "상명대부속초등학교",
+    "point_avg": 245.3,
+    "point_total": "82,425.25",
+    "books": "25,027"
+  },
+  {
+    "customers": "생수의강기독학교",
+    "point_avg": 242.6,
+    "point_total": "28,136.45",
+    "books": "7,602"
+  },
+  {
+    "customers": "천안높은뜻씨앗학교",
+    "point_avg": 241.7,
+    "point_total": "23,689.50",
+    "books": "5,122"
+  },
+  {
+    "customers": "성남장안초등학교",
+    "point_avg": 233.4,
+    "point_total": "102,447.40",
+    "books": "25,272"
+  },
+  {
+    "customers": "용인구갈초등학교",
+    "point_avg": 231.6,
+    "point_total": "80,347.20",
+    "books": "18,618"
+  },
+  {
+    "customers": "태강삼육초등학교",
+    "point_avg": 221.6,
+    "point_total": "23,267.75",
+    "books": "5,368"
+  },
+  {
+    "customers": "양평양수초등학교",
+    "point_avg": 212.2,
+    "point_total": "35,018.70",
+    "books": "10,626"
+  },
+  {
+    "customers": "성남탄천초등학교",
+    "point_avg": 212,
+    "point_total": "85,632.35",
+    "books": "18,112"
+  },
+  {
+    "customers": "꿈의학교",
+    "point_avg": 211.7,
+    "point_total": "19,262.30",
+    "books": "2,912"
+  },
+  {
+    "customers": "용인대덕초등학교",
+    "point_avg": 207.9,
+    "point_total": "76,728.30",
+    "books": "16,777"
+  },
+  {
+    "customers": "용인정평초등학교",
+    "point_avg": 205.7,
+    "point_total": "98,304.20",
+    "books": "17,830"
+  },
+  {
+    "customers": "서울화곡중학교",
+    "point_avg": 204.5,
+    "point_total": "37,628.60",
+    "books": "6,485"
+  },
+  {
+    "customers": "철원근남초등학교",
+    "point_avg": 202.5,
+    "point_total": "10,732.40",
+    "books": "1,576"
+  },
+  {
+    "customers": "일산하늘초등학교",
+    "point_avg": 201.7,
+    "point_total": "102,078.80",
+    "books": "26,843"
+  },
+  {
+    "customers": "춘천효제초등학교",
+    "point_avg": 201.1,
+    "point_total": "19,510.55",
+    "books": "5,815"
+  },
+  {
+    "customers": "부천까치울초등학교",
+    "point_avg": 199.7,
+    "point_total": "26,955.50",
+    "books": "7,156"
+  },
+  {
+    "customers": "부산대저초등학교",
+    "point_avg": 198,
+    "point_total": "7,523.55",
+    "books": "1,512"
+  },
+  {
+    "customers": "서울월계초등학교",
+    "point_avg": 194.6,
+    "point_total": "35,814.45",
+    "books": "10,843"
+  },
+  {
+    "customers": "유석초등학교",
+    "point_avg": 192.8,
+    "point_total": "67,653.70",
+    "books": "11,204"
+  },
+  {
+    "customers": "성남여수초등학교",
+    "point_avg": 192.6,
+    "point_total": "136,920.35",
+    "books": "33,181"
+  },
+  {
+    "customers": "성남불정초등학교",
+    "point_avg": 191.9,
+    "point_total": "142,168.25",
+    "books": "25,570"
+  },
+  {
+    "customers": "양주효촌초등학교",
+    "point_avg": 190.6,
+    "point_total": "11,051.90",
+    "books": "3,465"
+  },
+  {
+    "customers": "영화초등학교",
+    "point_avg": 186.7,
+    "point_total": "42,745.05",
+    "books": "12,434"
+  },
+  {
+    "customers": "샘물학교",
+    "point_avg": 186.6,
+    "point_total": "7,464.00",
+    "books": "1,753"
+  },
+  {
+    "customers": "양평옥천초등학교",
+    "point_avg": 186.2,
+    "point_total": "34,996.20",
+    "books": "9,508"
+  },
+  {
+    "customers": "용인고기초등학교",
+    "point_avg": 180.7,
+    "point_total": "32,167.85",
+    "books": "6,374"
+  },
+  {
+    "customers": "세종수왕초등학교",
+    "point_avg": 178.2,
+    "point_total": "13,546.40",
+    "books": "3,116"
+  },
+  {
+    "customers": "사천용현초등학교",
+    "point_avg": 178.2,
+    "point_total": "37,594.35",
+    "books": "9,646"
+  },
+  {
+    "customers": "성남금상초등학교",
+    "point_avg": 178.1,
+    "point_total": "125,916.65",
+    "books": "33,548"
+  },
+  {
+    "customers": "과천청계초등학교",
+    "point_avg": 177.7,
+    "point_total": "176,678.30",
+    "books": "35,951"
+  },
+  {
+    "customers": "성남서초등학교",
+    "point_avg": 177.3,
+    "point_total": "29,251.10",
+    "books": "8,198"
+  },
+  {
+    "customers": "포천도평초등학교",
+    "point_avg": 174.9,
+    "point_total": "8,744.80",
+    "books": "1,704"
+  },
+  {
+    "customers": "성남미금초등학교",
+    "point_avg": 174.9,
+    "point_total": "124,329.45",
+    "books": "23,302"
+  },
+  {
+    "customers": "서울홍파초등학교",
+    "point_avg": 172.1,
+    "point_total": "29,601.55",
+    "books": "8,012"
+  },
+  {
+    "customers": "하남서부초등학교",
+    "point_avg": 170.4,
+    "point_total": "15,677.80",
+    "books": "4,395"
+  },
+  {
+    "customers": "부산연천중학교",
+    "point_avg": 168.8,
+    "point_total": "29,870.05",
+    "books": "4,134"
+  },
+  {
+    "customers": "성남판교대장초등학교",
+    "point_avg": 167.3,
+    "point_total": "211,333.40",
+    "books": "45,430"
+  },
+  {
+    "customers": "성남구미초등학교",
+    "point_avg": 166.5,
+    "point_total": "95,593.15",
+    "books": "18,663"
+  },
+  {
+    "customers": "화천상승초등학교",
+    "point_avg": 166.5,
+    "point_total": "4,661.30",
+    "books": "1,691"
+  },
+  {
+    "customers": "수원동신초등학교",
+    "point_avg": 165.8,
+    "point_total": "48,747.60",
+    "books": "14,844"
+  },
+  {
+    "customers": "김포마송중앙초등학교",
+    "point_avg": 164.3,
+    "point_total": "28,581.55",
+    "books": "10,391"
+  },
+  {
+    "customers": "양평동초등학교",
+    "point_avg": 163.9,
+    "point_total": "31,633.45",
+    "books": "8,518"
+  },
+  {
+    "customers": "부산신도초등학교",
+    "point_avg": 161.8,
+    "point_total": "108,047.60",
+    "books": "23,204"
+  },
+  {
+    "customers": "성남판교초등학교",
+    "point_avg": 161.2,
+    "point_total": "168,658.70",
+    "books": "31,170"
+  },
+  {
+    "customers": "하남한홀초등학교",
+    "point_avg": 159.6,
+    "point_total": "217,801.20",
+    "books": "48,972"
+  },
+  {
+    "customers": "성남단남초등학교",
+    "point_avg": 159.3,
+    "point_total": "75,670.85",
+    "books": "18,829"
+  },
+  {
+    "customers": "파주갈현초등학교",
+    "point_avg": 159.2,
+    "point_total": "9,074.95",
+    "books": "4,096"
+  },
+  {
+    "customers": "양산영천초등학교",
+    "point_avg": 159.1,
+    "point_total": "10,819.55",
+    "books": "4,139"
+  },
+  {
+    "customers": "포천이동초등학교",
+    "point_avg": 151.5,
+    "point_total": "8,179.45",
+    "books": "1,797"
+  },
+  {
+    "customers": "부산장안초등학교",
+    "point_avg": 150.9,
+    "point_total": "8,754.00",
+    "books": "2,285"
+  }
+]
