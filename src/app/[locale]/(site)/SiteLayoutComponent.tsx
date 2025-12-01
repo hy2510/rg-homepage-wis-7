@@ -11,6 +11,7 @@ import ChangeGroupClassController from './_header/ChangeGroupClassController'
 import Gfooter from './_header/GFooter'
 import Gheader from './_header/Gheader'
 import useConnectRefreshToken from './useConnectRefreshToken'
+import { AppPopupModal } from './_header/AppPopupModal'
 
 export default function SiteLayoutComponent({
   children,
@@ -34,6 +35,7 @@ export default function SiteLayoutComponent({
             {children}
             <Gfooter />
           </ChangeGroupClassController>
+          <AppPopupModal />
         </>
       ) : (
         <SiteBlocked />
